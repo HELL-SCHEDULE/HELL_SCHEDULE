@@ -19,7 +19,7 @@ const FindAccountPw = () => {
         이메일을 통해 비밀번호 변경 링크가 전송됩니다.
       </p>
       <input
-        className='account-input'
+        className='global-input'
         type='text'
         placeholder='example@gmail.com'
       />

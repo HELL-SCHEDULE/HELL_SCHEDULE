@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ResetPwForm = styled.div`
   height: 100%;
   width: 100%;
-  p {
+  & > p {
     color: #878787;
     font-size: 14px;
     margin-bottom: 3.5%;
@@ -19,7 +19,7 @@ export const ResetPwForm = styled.div`
       margin-bottom: 0;
     }
   }
-  .account-input {
+  .global-input {
     width: 72%;
     max-width: 202px;
     height: 100%;

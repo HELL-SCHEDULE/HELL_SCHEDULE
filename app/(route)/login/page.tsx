@@ -19,8 +19,8 @@ const Login = () => {
   return (
     <AccountLayout title={'로그인'}>
       <LoginForm>
-        <input className='account-input' type='text' placeholder='아이디' />
-        <input className='account-input' type='text' placeholder='비밀번호' />
+        <input className='global-input' type='text' placeholder='아이디' />
+        <input className='global-input' type='text' placeholder='비밀번호' />
         <Button
           title={'로그인'}
           style={loginStyle}

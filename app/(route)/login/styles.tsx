@@ -5,7 +5,7 @@ export const LoginForm = styled.div`
   flex-direction: column;
   gap: 8%;
   height: 100%;
-  .account-input {
+  .global-input {
     height: 17.3%;
   }
   .search-account {

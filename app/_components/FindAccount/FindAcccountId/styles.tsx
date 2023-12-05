@@ -7,7 +7,7 @@ export const FindAccountIdFrom = styled.div`
     font-size: 14px;
     margin-bottom: 3.5%;
   }
-  .account-input {
+  .global-input {
     height: 21.8%;
     margin-bottom: 8%;
   }

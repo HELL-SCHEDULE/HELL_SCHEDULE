@@ -13,7 +13,7 @@ const FindAccountId = () => {
     <FindAccountIdFrom>
       <p>헬스케줄에 가입한 이메일을 정확히 입력해 주세요.</p>
       <input
-        className='account-input'
+        className='global-input'
         type='text'
         placeholder='example@gmail.com'
       />
