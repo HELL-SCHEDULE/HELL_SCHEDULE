@@ -116,7 +116,7 @@ a {
 @media all and (min-width: 1024px) and (max-width: 1920px) {
   .error-message {
     color: red;
-    font-size: 12px !important;
+    font-size: 10px !important;
   }
 }
 

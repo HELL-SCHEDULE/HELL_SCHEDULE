@@ -34,7 +34,7 @@ const Join = () => {
         <div className='form-title'>회원가입</div>
         <BasicForm>
           <div className='id-check'>
-            <input type='text' className='global-input' />
+            <input type='text' className='global-input id' />
             <button>중복 확인</button>
           </div>
           <input type='text' className='global-input' />
@@ -72,9 +72,6 @@ const Join = () => {
             <Instructor />
           )}
         </UserForm>
-        <p className='error-message'>
-          대표자와 사업자 번호를 확인할 수 없습니다.
-        </p>
         <Button
           title='회원가입'
           style={style}
