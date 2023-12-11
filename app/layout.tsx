@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={noto_sans_kr.className}>
-        {' '}
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>

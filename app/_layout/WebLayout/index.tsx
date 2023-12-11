@@ -22,12 +22,16 @@ const WebLayout = ({ children }: Props) => {
   return (
     <div
       style={{
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         aspectRatio: '16 / 9',
-        width: '100vw',
+        width: '100%',
       }}
     >
-      {innerWidth! < 1024 ? <WebSizeError /> : <div>{children}</div>}
+      {innerWidth! < 1024 ? (
+        <WebSizeError />
+      ) : (
+        <div style={{ height: '100%' }}>{children}</div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 import StyledComponentsRegistry from '@/lib/registry';
-import '../globals.css';
+import '../../globals.css';
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_KR } from 'next/font/google';
 
@@ -25,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={noto_sans_kr.className}>
-        {' '}
         <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
