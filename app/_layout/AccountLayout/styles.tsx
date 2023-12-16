@@ -60,7 +60,7 @@ export const FormTitleSection = styled.section`
   @media all and (min-width: 768px) and (max-width: 1023px) {
     // width: 46%;
     width: 100vw;
-    background: blue;
+    // background: blue;
     .form-section-wrapper {
       padding: 23.5% 12.4%;
       .form-title-logo {
@@ -77,7 +77,7 @@ export const FormTitleSection = styled.section`
 
   @media all and (max-width: 767px) {
     width: 100vw;
-    background: green;
+    // background: green;
     .form-section-wrapper {
       padding: 17.5% 11.4%;
       .form-title-logo {

@@ -5,6 +5,7 @@ const Member = () => {
   return (
     <WebLayout>
       <NavBar user={'master'} />
+      <div>Member</div>
     </WebLayout>
   );
 };

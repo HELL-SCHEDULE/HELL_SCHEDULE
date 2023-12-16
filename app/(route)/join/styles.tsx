@@ -21,7 +21,7 @@ export const JoinForm = styled.div`
   }
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     width: 38%;
-    background: yellow;
+    // background: yellow;
     .form-title {
       font-size: 20px;
     }
@@ -35,7 +35,7 @@ export const JoinForm = styled.div`
     width: 100vw !important;
     padding: 4.4% 15.7%;
 
-    background: blue;
+    // background: blue;
     .form-title {
       font-size: 20px;
       margin-top: 8.6%;
@@ -129,6 +129,7 @@ export const ChoiceUser = styled.div`
     border-bottom: 1px solid #878787;
     border-left: 1px solid #878787;
     background: #f4f4f4;
+    cursor:pointer;
   }
   .user-type:first-of-type {
     border-left: none;

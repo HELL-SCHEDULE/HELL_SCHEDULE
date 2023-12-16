@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Layout = styled.div`
   @media screen and (min-width: 768px) {
-    background: yellow;
+    // background: yellow;
     width: 375px;
     height: 70%;
     position: absolute;
@@ -12,7 +12,7 @@ export const Layout = styled.div`
     overflow: auto;
   }
   @media screen and (max-width: 767px) {
-    background: red;
+    // background: red;
     width: 100vw;
     height: 100vh;
   }

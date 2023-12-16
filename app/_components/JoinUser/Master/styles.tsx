@@ -27,6 +27,7 @@ export const MasterFormSection1 = styled.section`
     position: absolute;
     right: 0;
     bottom: 0;
+    cursor: pointer;
   }
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     .btn {
@@ -140,11 +141,12 @@ export const MasterFormSection2 = styled.section`
     border: none;
     background: #fff;
     color: var(--text-subtle, var(--input-border-color, #767676));
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     position: absolute;
     right: 0;
     bottom: 0;
+    cursor: pointer;
   }
   p {
     min-width: 100px;
@@ -152,14 +154,14 @@ export const MasterFormSection2 = styled.section`
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     font-size: 14px !important;
     .prev-btn {
-      font-size: 16px !important;
+      font-size: 14px !important;
     }
   }
 
   @media all and (min-width: 768px) and (max-width: 1023px) {
     font-size: 16px !important;
     .prev-btn {
-      font-size: 18px !important;
+      font-size: 16px !important;
     }
   }
 
@@ -187,7 +189,7 @@ export const RockerNumbForm = styled.div`
   }
   .rocker {
     width: 41%;
-    height: 100%;
+    height: 100% !important;
     margin: 0;
   }
 `;

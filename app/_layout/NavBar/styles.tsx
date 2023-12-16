@@ -24,7 +24,7 @@ export const NavBarWapper = styled.div`
     cursor: pointer;
   }
 
-  .nav-list .focus {
+  .nav-list .active {
     font-weight: 600;
   }
 `;

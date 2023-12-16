@@ -1,5 +1,4 @@
 'use client';
-
 import FindAccountId from '@/app/_components/FindAccount/FindAcccountId';
 import FindAccountPw from '@/app/_components/FindAccount/FindAccountPw';
 import AccountLayout from '@/app/_layout/AccountLayout';
