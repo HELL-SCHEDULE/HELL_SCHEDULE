@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SubNavStyles = styled.div`
-  width: 9%;
+  width: 7.5%;
   height: 100%;
   font-size: 22px;
   & > ul {
@@ -10,9 +10,12 @@ export const SubNavStyles = styled.div`
     flex-direction: row;
     align-items: center;
     height: 100%;
+    gap: 18%;
   }
+
   & > ul > li {
     width: 50%;
+    min-width: max-content;
   }
 
   .active {
