@@ -7,7 +7,8 @@ export const NavBarWapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
+  font-size: 20px;
+  border-bottom: 1px solid var(--Border-Subtle, #aaa);
 
   .nav-bar-logo {
     width: 3.27%;
@@ -26,5 +27,9 @@ export const NavBarWapper = styled.div`
 
   .nav-list .active {
     font-weight: 600;
+  }
+
+  @media all and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: 16px;
   }
 `;

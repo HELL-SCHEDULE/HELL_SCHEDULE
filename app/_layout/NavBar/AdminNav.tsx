@@ -3,12 +3,11 @@ import { usePathname } from 'next/navigation';
 
 const AdminNav = () => {
   const pathname = usePathname();
-
   return (
     <>
       <ul className='nav-list'>
-        <li className={pathname == '/admin' ? 'active' : ''}>
-          <Link href={'/admin'}>센터</Link>
+        <li className={pathname.includes('/admin/senter') ? 'active' : ''}>
+          <Link href={'/admin/senter/request'}>센터</Link>
         </li>
       </ul>
     </>
