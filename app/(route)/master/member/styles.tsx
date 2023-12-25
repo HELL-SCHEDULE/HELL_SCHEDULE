@@ -45,3 +45,153 @@ export const BtnSection = styled.div`
     border-radius: 8px;
   }
 `;
+
+export const TableContent = styled.div`
+  height: 83%;
+  font-size: 16px;
+
+  & > table {
+    width: 100%;
+    height: 95%;
+  }
+  @media all and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: 14px;
+  }
+`;
+export const TableHead = styled.thead`
+  width: 100%;
+  height: 104%;
+  display: flex;
+  align-items: center;
+  & > tr {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  & > tr > th {
+    min-width: fit-content;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+  #check-box {
+    width: 4%;
+    & > input {
+      width: 42%;
+      height: 100%;
+    }
+  }
+  #name {
+    width: 10%;
+  }
+  #id {
+    width: 9%;
+  }
+  #phone-number {
+    width: 13%;
+  }
+  #product {
+    width: 11%;
+  }
+  #register-date {
+    width: 13%;
+  }
+  #instructor {
+    width: 7%;
+  }
+  #count {
+    width: 7%;
+  }
+  #rocker {
+    width: 6%;
+  }
+  #look {
+    width: 7%;
+  }
+  #preiod {
+    width: 13%;
+  }
+`;
+export const TableBody = styled.tbody`
+  width: 100%;
+  height: 90%;
+  & > tr {
+    width: 100%;
+    height: 11.5%;
+    display: flex;
+    align-items: center;
+  }
+  & > tr > td {
+    min-width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  #check-box {
+    width: 4%;
+    & > input {
+      width: 42%;
+      height: 100%;
+    }
+  }
+  #name {
+    width: 10%;
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 10%;
+      width: 100%;
+    }
+    .profile .img {
+      width: 23%;
+      border-radius: 50%;
+      aspect-ratio: 1;
+      background: #f4f4f4;
+    }
+  }
+  #id {
+    width: 9%;
+  }
+  #phone-number {
+    width: 13%;
+  }
+  #product {
+    width: 11%;
+  }
+  #register-date {
+    width: 13%;
+  }
+  #instructor {
+    width: 7%;
+  }
+  #count {
+    width: 7%;
+  }
+  #rocker {
+    width: 6%;
+  }
+  #look {
+    width: 7%;
+    transform: translateX(15%);
+  }
+  #preiod {
+    width: 13%;
+  }
+`;
+export const Pagination = styled.div`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  font-size: 18px;
+  & > span {
+    display: flex;
+  }
+  @media all and (min-width: 1024px) and (max-width: 1919px) {
+    font-size: 16px;
+  }
+`;

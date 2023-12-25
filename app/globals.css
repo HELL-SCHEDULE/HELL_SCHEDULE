@@ -97,7 +97,6 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 
-  aspect-ratio: 16 / 9;
   margin: 0px auto;
   height: 100vh;
 }

@@ -27,9 +27,8 @@ export const SubNavStyles = styled.div`
 `;
 
 export const ContentHeader = styled.div`
-  height: 4.2%;
+  height: 4.98%;
   min-height: 35px;
-  padding: 0 3.2%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
