@@ -1,12 +1,15 @@
 import React from 'react';
-import { ModalLayouyStyles } from './styles';
+import { ModalLayoutStyles } from './styles';
 
 interface Props {
+  onCloseModal: () => void;
   children: React.ReactNode;
 }
 
-const ModalLayout = ({ children }: Props) => {
-  return <ModalLayouyStyles>{children}</ModalLayouyStyles>;
+const ModalLayout = ({ onCloseModal, children }: Props) => {
+  return (
+    <ModalLayoutStyles onClick={onCloseModal}>{children}</ModalLayoutStyles>
+  );
 };
 
 export default ModalLayout;

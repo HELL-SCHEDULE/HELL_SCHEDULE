@@ -166,8 +166,8 @@ const Member = () => {
           </Pagination>
         </TableContent>
         {isOpenRegisterModal && (
-          <ModalLayout>
-            <MemberRgModal />
+          <ModalLayout onCloseModal={handleRegisterModal}>
+            <MemberRgModal onCloseModal={handleRegisterModal} />
           </ModalLayout>
         )}
       </PageContent>
