@@ -11,11 +11,10 @@ import {
   RightSection,
   SearchSection,
   TableBody,
-  TableContent,
   TableHead,
 } from './styles';
 import Image from 'next/image';
-import { PageContent } from '@/app/_layout/WebLayout/styles';
+import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import { useCallback, useState } from 'react';
 import ModalLayout from '@/app/_layout/ModalLayout';
 import MemberRgModal from '@/app/_components/Modal/MemberRgModal';
@@ -59,6 +58,66 @@ const Member = () => {
       look: true,
       period: '2023.12.25 ~ 2023.12.31',
     },
+    {
+      name: '김하정',
+      id: '0071',
+      phone_number: '010-****-****',
+      product: '그룹수업 10회권',
+      register_date: '2023.12.25 ~ 2023.12.31',
+      instructor: '김하정',
+      count: 8,
+      rocker: 32,
+      look: true,
+      period: '2023.12.25 ~ 2023.12.31',
+    },
+    {
+      name: '김하정',
+      id: '0072',
+      phone_number: '010-****-****',
+      product: '개인 1:1',
+      register_date: '2023.12.25 ~ 2023.12.31',
+      instructor: '김하정',
+      count: 8,
+      rocker: 32,
+      look: true,
+      period: '2023.12.25 ~ 2023.12.31',
+    },
+    {
+      name: '김하정',
+      id: '0073',
+      phone_number: '010-****-****',
+      product: '개인 1:1',
+      register_date: '2023.12.25 ~ 2023.12.31',
+      instructor: '김하정',
+      count: 8,
+      rocker: 32,
+      look: true,
+      period: '2023.12.25 ~ 2023.12.31',
+    },
+    {
+      name: '김하정',
+      id: '0071',
+      phone_number: '010-****-****',
+      product: '그룹수업 10회권',
+      register_date: '2023.12.25 ~ 2023.12.31',
+      instructor: '김하정',
+      count: 8,
+      rocker: 32,
+      look: true,
+      period: '2023.12.25 ~ 2023.12.31',
+    },
+    {
+      name: '김하정',
+      id: '0072',
+      phone_number: '010-****-****',
+      product: '개인 1:1',
+      register_date: '2023.12.25 ~ 2023.12.31',
+      instructor: '김하정',
+      count: 8,
+      rocker: 32,
+      look: true,
+      period: '2023.12.25 ~ 2023.12.31',
+    },
   ];
   const pagination = new Array(Math.ceil(members.length / 8))
     .fill(0)
@@ -70,7 +129,7 @@ const Member = () => {
   return (
     <WebLayout>
       <NavBar user={'master'} />
-      <PageContent>
+      <PageContentWrpper>
         <Title title={'회원 등록 및 관리'} />
         <ContentHeader>
           <SubNav>
@@ -99,7 +158,7 @@ const Member = () => {
             </RightSection>
           </Section>
         </ContentHeader>
-        <TableContent>
+        <PageContent>
           <table>
             <TableHead>
               <tr>
@@ -164,13 +223,13 @@ const Member = () => {
               />
             </span>
           </Pagination>
-        </TableContent>
+        </PageContent>
         {isOpenRegisterModal && (
           <ModalLayout onCloseModal={handleRegisterModal}>
             <MemberRgModal onCloseModal={handleRegisterModal} />
           </ModalLayout>
         )}
-      </PageContent>
+      </PageContentWrpper>
     </WebLayout>
   );
 };

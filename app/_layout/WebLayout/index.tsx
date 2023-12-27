@@ -23,6 +23,7 @@ const WebLayout = ({ children }: Props) => {
     <div
       style={{
         width: '100vw',
+        minHeight: '730px',
         height: '100vh',
       }}
     >

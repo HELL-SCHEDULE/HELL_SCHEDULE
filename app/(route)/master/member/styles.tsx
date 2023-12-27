@@ -43,26 +43,14 @@ export const BtnSection = styled.div`
     color: white;
     background: #041f86;
     border-radius: 8px;
+    cursor: pointer;
   }
 `;
 
-export const TableContent = styled.div`
-  height: 83%;
-  font-size: 16px;
-
-  & > table {
-    width: 100%;
-    height: 95%;
-  }
-  @media all and (min-width: 1024px) and (max-width: 1919px) {
-    font-size: 14px;
-  }
-`;
 export const TableHead = styled.thead`
   width: 100%;
-  height: 104%;
-  display: flex;
-  align-items: center;
+  height: 10%;
+  display: block;
   & > tr {
     width: 100%;
     height: 100%;
@@ -80,7 +68,7 @@ export const TableHead = styled.thead`
     width: 4%;
     & > input {
       width: 42%;
-      height: 100%;
+      aspect-ratio: 1/1;
     }
   }
   #name {
@@ -117,9 +105,11 @@ export const TableHead = styled.thead`
 export const TableBody = styled.tbody`
   width: 100%;
   height: 90%;
+  display: block;
   & > tr {
     width: 100%;
-    height: 11.5%;
+    height: 11.1%;
+    min-height: 50px;
     display: flex;
     align-items: center;
   }
@@ -133,7 +123,7 @@ export const TableBody = styled.tbody`
     width: 4%;
     & > input {
       width: 42%;
-      height: 100%;
+      aspect-ratio: 1/1;
     }
   }
   #name {
