@@ -12,9 +12,15 @@ import {
   RightSection,
   SearchSection,
 } from '../member/styles';
-import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
+import {
+  Content,
+  PageContent,
+  PageContentWrpper,
+} from '@/app/_layout/WebLayout/styles';
 import InstructorCard from '@/app/_components/InstructorCard';
-import { InstructorCardSection } from './styles';
+import { useCallback, useState } from 'react';
+import ModalLayout from '@/app/_layout/ModalLayout';
+import InstructorRgModal from '@/app/_components/Modal/InstructorRgModal';
 
 const Instructor = () => {
   const instuctors = [
@@ -54,6 +60,22 @@ const Instructor = () => {
     .fill(0)
     .map((v, i) => i + 1);
 
+  const [isClickedModify, setisClickedModify] = useState(false);
+  const onClickModify = useCallback(() => {
+    setisClickedModify((prev) => !prev);
+  }, []);
+
+  const handleDeleteInstructor = useCallback(() => {
+    console.log('삭제');
+    setisClickedModify(false);
+  }, []);
+
+  const [isOpenedRegisterModal, setIsOpenedRegisterModal] = useState(false);
+
+  const handleRegisterModal = useCallback(() => {
+    setIsOpenedRegisterModal((prev) => !prev);
+  }, []);
+
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -74,18 +96,44 @@ const Instructor = () => {
                 <div className='icon'></div>
               </SearchSection>
               <BtnSection>
-                <button>편집</button>
-                <button>등록</button>
+                {isClickedModify ? (
+                  <button
+                    onClick={() => {
+                      handleDeleteInstructor();
+                    }}
+                  >
+                    삭제
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      onClickModify();
+                    }}
+                  >
+                    편집
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    handleRegisterModal();
+                  }}
+                >
+                  등록
+                </button>
               </BtnSection>
             </RightSection>
           </Section>
         </ContentHeader>
         <PageContent>
-          <InstructorCardSection>
+          <Content grid='instructor'>
             {instuctors.map((instuctor, i) => (
-              <InstructorCard key={i} instructor={instuctor} />
+              <InstructorCard
+                key={i}
+                instructor={instuctor}
+                isClickedModify={isClickedModify}
+              />
             ))}
-          </InstructorCardSection>
+          </Content>
           <Pagination>
             <span>
               <Image
@@ -108,6 +156,11 @@ const Instructor = () => {
             </span>
           </Pagination>
         </PageContent>
+        {isOpenedRegisterModal && (
+          <ModalLayout onCloseModal={handleRegisterModal}>
+            <InstructorRgModal onCloseModal={handleRegisterModal} />
+          </ModalLayout>
+        )}
       </PageContentWrpper>
     </WebLayout>
   );

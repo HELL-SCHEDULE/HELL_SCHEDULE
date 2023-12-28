@@ -5,6 +5,17 @@ export const InstructorCardWrapper = styled.div`
   width: 100%;
   height: 0;
   padding-bottom: 50%;
+  .check-box {
+    width: 10%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    right: 0;
+    top: -7%;
+    display: none;
+  }
+  .active {
+    display: inline;
+  }
 `;
 
 export const InstructorCardContent = styled.div`
@@ -16,7 +27,7 @@ export const InstructorCardContent = styled.div`
   box-shadow: 3px 4px 16px 0px rgba(0, 0, 0, 0.25);
   position: absolute;
   width: 100%;
-  height: 42%;
+  height: 100%;
   min-height: 153px;
   top: 0;
   left: 0;

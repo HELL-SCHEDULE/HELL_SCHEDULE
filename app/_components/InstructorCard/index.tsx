@@ -8,11 +8,16 @@ import {
 
 interface Props {
   instructor: { [key: string]: string };
+  isClickedModify: boolean;
 }
 
-const InstructorCard = ({ instructor }: Props) => {
+const InstructorCard = ({ instructor, isClickedModify }: Props) => {
   return (
     <InstructorCardWrapper>
+      <input
+        className={`check-box ${isClickedModify && 'active'}`}
+        type='checkbox'
+      />
       <InstructorCardContent>
         <ProfileImgSection>카메라</ProfileImgSection>
         <ProfileInfoSection>

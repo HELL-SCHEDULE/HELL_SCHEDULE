@@ -16,8 +16,8 @@ import {
 import Image from 'next/image';
 import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import { useCallback, useState } from 'react';
-import ModalLayout from '@/app/_layout/ModalLayout';
 import MemberRgModal from '@/app/_components/Modal/MemberRgModal';
+import ModalLayout from '@/app/_layout/ModalLayout';
 
 const Member = () => {
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
