@@ -1,31 +1,31 @@
 import { ModalHeader } from '@/app/_layout/ModalLayout/styles';
 import styled from 'styled-components';
 
-export const ProductModalStyle = styled.div`
-  width: 21.7%;
-  min-width: 362px;
-  height: 32.5%;
-  min-height: 351px;
+export const LockLookModalStyle = styled.div`
+  width: 16.57%;
+  min-width: 318px;
+  height: 30.85%;
+  min-height: 333px;
   padding: 1.1% 1.41%;
   border-radius: 12px;
   border: 2px solid #a9a9a9;
   background: white;
 `;
 
-export const ProductModalHeader = styled(ModalHeader)`
+export const LockLookModalHeader = styled(ModalHeader)`
   height: 8%;
 `;
 
-export const ProductModalContent = styled.div`
+export const LockLookModalContent = styled.div`
   height: calc(100% - 8% - 7px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
-export const ProductInfo = styled.div`
+export const LockLookInfo = styled.div`
   width: 100%;
-  height: 60.5%;
+  height: 74.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -34,6 +34,9 @@ export const ProductInfo = styled.div`
   .period {
     width: 30%;
   }
+  .type {
+    width: 50%;
+  }
   .price {
     width: 50%;
   }
@@ -41,13 +44,14 @@ export const ProductInfo = styled.div`
 
 export const ButtonSection = styled.div`
   width: 100%;
-  height: 32%;
+  height: 13.7%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 5%;
 
   & > button {
-    height: 43%;
+    width: 32.7%;
+    height: 100%;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;

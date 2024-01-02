@@ -19,6 +19,8 @@ import {
 } from '@/app/_layout/WebLayout/styles';
 import ProductCard from '@/app/_components/ProductCard';
 import { useCallback, useState } from 'react';
+import ModalLayout from '@/app/_layout/ModalLayout';
+import LockLookModal from '@/app/_components/Modal/LockLookModal';
 
 const RockLook = () => {
   const looks = [
@@ -73,15 +75,28 @@ const RockLook = () => {
     .fill(0)
     .map((v, i) => i + 1);
 
-  const [isClickedModify, setisClickedModify] = useState(false);
-  const onClickModify = useCallback(() => {
-    setisClickedModify((prev) => !prev);
+  const [isClickedEdit, setisClickedEdit] = useState(false);
+  const handleEditRockLook = useCallback(() => {
+    setisClickedEdit((prev) => !prev);
   }, []);
 
-  const handleDeleteInstructor = useCallback(() => {
+  const handleDeleteRockLook = useCallback(() => {
     console.log('삭제');
-    setisClickedModify(false);
+    setisClickedEdit(false);
   }, []);
+
+  const [isOpenedRegisterModal, setIsOpenedRegisterModal] = useState(false);
+
+  const handleRegisterModal = useCallback(() => {
+    setIsOpenedRegisterModal((prev) => !prev);
+  }, []);
+
+  const [isOpenedModifyModal, setIsOpenedModifyModal] = useState(false);
+
+  const handleModifyModal = useCallback(() => {
+    setIsOpenedModifyModal((prev) => !prev);
+  }, []);
+
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -105,10 +120,10 @@ const RockLook = () => {
                 <div className='icon'></div>
               </SearchSection>
               <BtnSection>
-                {isClickedModify ? (
+                {isClickedEdit ? (
                   <button
                     onClick={() => {
-                      handleDeleteInstructor();
+                      handleDeleteRockLook();
                     }}
                   >
                     삭제
@@ -116,13 +131,19 @@ const RockLook = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      onClickModify();
+                      handleEditRockLook();
                     }}
                   >
                     편집
                   </button>
                 )}
-                <button>등록</button>
+                <button
+                  onClick={() => {
+                    handleRegisterModal();
+                  }}
+                >
+                  등록
+                </button>
               </BtnSection>
             </RightSection>
           </Section>
@@ -133,7 +154,8 @@ const RockLook = () => {
               <ProductCard
                 key={i}
                 product={look}
-                isClickedModify={isClickedModify}
+                isClickedEdit={isClickedEdit}
+                handleModifyModal={handleModifyModal}
               />
             ))}
           </Content>
@@ -159,6 +181,22 @@ const RockLook = () => {
             </span>
           </Pagination>
         </PageContent>
+        {isOpenedRegisterModal && (
+          <ModalLayout onCloseModal={handleRegisterModal}>
+            <LockLookModal
+              title={'락커 및 회원복 등록'}
+              onCloseModal={handleRegisterModal}
+            />
+          </ModalLayout>
+        )}
+        {isOpenedModifyModal && (
+          <ModalLayout onCloseModal={handleModifyModal}>
+            <LockLookModal
+              title={'락커 및 회원복 수정'}
+              onCloseModal={handleModifyModal}
+            />
+          </ModalLayout>
+        )}
       </PageContentWrpper>
     </WebLayout>
   );

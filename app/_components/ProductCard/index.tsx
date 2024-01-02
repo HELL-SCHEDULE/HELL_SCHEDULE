@@ -6,7 +6,6 @@ import {
   ProductCardWrapper,
   TopSection,
 } from './styles';
-
 interface Props {
   product: { [key: string]: string };
   isClickedEdit: boolean;

@@ -46,11 +46,11 @@ const Tickets = () => {
     .map((v, i) => i + 1);
 
   const [isClickedEdit, setisClickedEdit] = useState(false);
-  const handleEditInstructor = useCallback(() => {
+  const handleEditTicket = useCallback(() => {
     setisClickedEdit((prev) => !prev);
   }, []);
 
-  const handleDeleteInstructor = useCallback(() => {
+  const handleDeleteTicket = useCallback(() => {
     console.log('삭제');
     setisClickedEdit(false);
   }, []);
@@ -93,7 +93,7 @@ const Tickets = () => {
                 {isClickedEdit ? (
                   <button
                     onClick={() => {
-                      handleDeleteInstructor();
+                      handleDeleteTicket();
                     }}
                   >
                     삭제
@@ -101,7 +101,7 @@ const Tickets = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      handleEditInstructor();
+                      handleEditTicket();
                     }}
                   >
                     편집

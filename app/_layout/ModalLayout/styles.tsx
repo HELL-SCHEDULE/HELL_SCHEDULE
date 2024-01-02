@@ -10,6 +10,7 @@ export const ModalLayoutStyles = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(11, 19, 30, 0.37);
 `;
 
 export const ModalHeader = styled.header`
