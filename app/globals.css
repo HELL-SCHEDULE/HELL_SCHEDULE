@@ -116,6 +116,9 @@ a {
 .error-message {
   color: red;
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 @media all and (min-width: 1024px) and (max-width: 1920px) {

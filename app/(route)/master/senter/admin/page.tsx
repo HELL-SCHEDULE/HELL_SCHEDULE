@@ -9,9 +9,9 @@ import Link from 'next/link';
 import {
   AdminPageContent,
   ButtonSection,
-  CertificSection,
   InfoModifyContent,
   InfoModifySection,
+  TitleSection,
 } from './styles';
 import { InputWrapper } from '@/app/_components/Modal/MemberRgModal/styles';
 
@@ -34,31 +34,30 @@ const Admin = () => {
           </SubNav>
         </ContentHeader>
         <AdminPageContent>
-          <CertificSection>
-            <div className='main-title'>본인 인증</div>
-            <InputWrapper height={'83.1%'}>
-              <span className='input-title'>이메일</span>
-              <div className='input-content'>
-                <input className='input email' type='text' />
-                <span className='mark'>@</span>
-                <select className='input email'>
-                  <option>naver.com</option>
-                  <option>gmail.com</option>
-                </select>
-                <button className='btn'>인증</button>
-              </div>
-            </InputWrapper>
-          </CertificSection>
           <InfoModifySection>
-            <div className='main-title'>센터 정보 수정</div>
             <InfoModifyContent>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'} style={{ marginBottom: '4%' }}>
+                <div className='main-title'>본인 인증</div>
+                <span className='input-title'>이메일</span>
+                <div className='input-content'>
+                  <input className='input email' type='text' />
+                  <span className='mark'>@</span>
+                  <select className='input email'>
+                    <option>naver.com</option>
+                    <option>gmail.com</option>
+                  </select>
+                  <button className='btn'>인증</button>
+                </div>
+              </InputWrapper>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'>센터 정보 수정</div>
                 <span className='input-title'>대표자</span>
                 <div className='input-content'>
                   <input className='input email' type='text' />
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>핸드폰 번호</span>
                 <div className='input-content'>
                   <select className='input phone'>
@@ -71,13 +70,15 @@ const Admin = () => {
                   <input type='text' className='input phone' />
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>상호명</span>
                 <div className='input-content'>
                   <input className='input' type='text' />
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>사업자 번호</span>
                 <div className='input-content'>
                   <input className='input' type='text' />
@@ -87,21 +88,24 @@ const Admin = () => {
                   </p>
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>센터 주소</span>
                 <div className='input-content'>
                   <input className='input address' type='text' />
                   <button className='btn'>검색</button>
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>락커 총 개수</span>
                 <div className='input-content'>
                   <input className='input count' type='text' />
                   <span className='mark'>개</span>
                 </div>
               </InputWrapper>
-              <InputWrapper height={'6.8%'}>
+              <InputWrapper height={'5.8%'}>
+                <div className='main-title'></div>
                 <span className='input-title'>회원복</span>
                 <div className='input-content'>
                   <label className='look-label'>
