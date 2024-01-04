@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Image from 'next/image';
-import { InputWrapper } from '../MemberRgModal/styles';
+import { InputWrapper } from '../MemberRgMdModal/styles';
 import {} from './styles';
 import {
   LockLookModalContent,

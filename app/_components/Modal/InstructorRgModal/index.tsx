@@ -7,7 +7,7 @@ import {
   InstructorRgModalContent,
   InstructorRgModalHeader,
 } from './style';
-import { InputWrapper } from '../MemberRgModal/styles';
+import { InputWrapper } from '../MemberRgMdModal/styles';
 
 interface Props {
   onCloseModal: () => void;

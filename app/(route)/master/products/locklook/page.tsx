@@ -109,7 +109,7 @@ const RockLook = () => {
                 <Link href={'/master/products/tickets'}>수강권</Link>
               </li>
               <li className='active'>
-                <Link href={'/master/products/rocklook'}>락커 및 회원복</Link>
+                <Link href={'/master/products/locklook'}>락커 및 회원복</Link>
               </li>
             </ul>
           </SubNav>

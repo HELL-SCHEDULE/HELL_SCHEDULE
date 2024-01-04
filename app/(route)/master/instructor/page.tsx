@@ -21,36 +21,37 @@ import InstructorCard from '@/app/_components/InstructorCard';
 import { useCallback, useState } from 'react';
 import ModalLayout from '@/app/_layout/ModalLayout';
 import InstructorRgModal from '@/app/_components/Modal/InstructorRgModal';
+import InstructorDetailModal from '@/app/_components/Modal/InstructorDetailModal';
 
 const Instructor = () => {
   const instuctors = [
     {
-      name: '김하정',
+      name: '김하정1',
       email: '****@****',
       phone_number: '010-****-****',
     },
     {
-      name: '김하정',
+      name: '김하정2',
       email: '****@****',
       phone_number: '010-****-****',
     },
     {
-      name: '김하정',
+      name: '김하정3',
       email: '****@****',
       phone_number: '010-****-****',
     },
     {
-      name: '김하정',
+      name: '김하정4',
       email: '****@****',
       phone_number: '010-****-****',
     },
     {
-      name: '김하정',
+      name: '김하정5',
       email: '****@****',
       phone_number: '010-****-****',
     },
     {
-      name: '김하정',
+      name: '김하정6',
       email: '****@****',
       phone_number: '010-****-****',
     },
@@ -60,14 +61,14 @@ const Instructor = () => {
     .fill(0)
     .map((v, i) => i + 1);
 
-  const [isClickedModify, setisClickedModify] = useState(false);
-  const onClickModify = useCallback(() => {
-    setisClickedModify((prev) => !prev);
+  const [isClickedEdit, setisClickedEdit] = useState(false);
+  const onClickEdit = useCallback(() => {
+    setisClickedEdit((prev) => !prev);
   }, []);
 
   const handleDeleteInstructor = useCallback(() => {
     console.log('삭제');
-    setisClickedModify(false);
+    setisClickedEdit(false);
   }, []);
 
   const [isOpenedRegisterModal, setIsOpenedRegisterModal] = useState(false);
@@ -75,6 +76,22 @@ const Instructor = () => {
   const handleRegisterModal = useCallback(() => {
     setIsOpenedRegisterModal((prev) => !prev);
   }, []);
+
+  const [isOpenedDetailModal, setIsOpenedDetailModal] = useState(false);
+  const [instructorInfo, setInstructorInfo] = useState<{
+    [key: string]: string;
+  }>({});
+
+  const handleDetailModal = useCallback(() => {
+    setIsOpenedDetailModal((prev) => !prev);
+  }, []);
+
+  const getInstructorInfo = useCallback(
+    (instructor: { [key: string]: string }) => {
+      setInstructorInfo(instructor);
+    },
+    []
+  );
 
   return (
     <WebLayout>
@@ -96,7 +113,7 @@ const Instructor = () => {
                 <div className='icon'></div>
               </SearchSection>
               <BtnSection>
-                {isClickedModify ? (
+                {isClickedEdit ? (
                   <button
                     onClick={() => {
                       handleDeleteInstructor();
@@ -107,7 +124,7 @@ const Instructor = () => {
                 ) : (
                   <button
                     onClick={() => {
-                      onClickModify();
+                      onClickEdit();
                     }}
                   >
                     편집
@@ -130,7 +147,9 @@ const Instructor = () => {
               <InstructorCard
                 key={i}
                 instructor={instuctor}
-                isClickedModify={isClickedModify}
+                isClickedEdit={isClickedEdit}
+                handleDetailModal={handleDetailModal}
+                getInstructorInfo={getInstructorInfo}
               />
             ))}
           </Content>
@@ -159,6 +178,14 @@ const Instructor = () => {
         {isOpenedRegisterModal && (
           <ModalLayout onCloseModal={handleRegisterModal}>
             <InstructorRgModal onCloseModal={handleRegisterModal} />
+          </ModalLayout>
+        )}
+        {isOpenedDetailModal && (
+          <ModalLayout onCloseModal={handleDetailModal}>
+            <InstructorDetailModal
+              instructorInfo={instructorInfo}
+              onCloseModal={handleDetailModal}
+            />
           </ModalLayout>
         )}
       </PageContentWrpper>

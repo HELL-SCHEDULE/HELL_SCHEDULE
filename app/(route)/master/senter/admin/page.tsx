@@ -13,7 +13,7 @@ import {
   InfoModifySection,
   TitleSection,
 } from './styles';
-import { InputWrapper } from '@/app/_components/Modal/MemberRgModal/styles';
+import { InputWrapper } from '@/app/_components/Modal/MemberRgMdModal/styles';
 
 const Admin = () => {
   return (

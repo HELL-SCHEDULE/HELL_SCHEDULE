@@ -112,6 +112,11 @@ export const TableBody = styled.tbody`
     min-height: 50px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+  }
+  & > tr:hover,
+  & > tr:active {
+    background: #e7edfc;
   }
   & > tr > td {
     min-width: fit-content;

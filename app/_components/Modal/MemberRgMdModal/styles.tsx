@@ -1,26 +1,26 @@
 import { ModalHeader } from '@/app/_layout/ModalLayout/styles';
 import styled from 'styled-components';
 
-export const MemberRegisterModal = styled.div`
+export const MemberRegisterModifyModal = styled.div`
   width: 28.65%;
   min-width: 450px;
   height: 69.2%;
   min-height: 640px;
-  padding: 1.1% 1.41%;
+  padding: 1.41% 1.1%;
   border-radius: 12px;
   border: 2px solid #a9a9a9;
   background: white;
 `;
 
-export const MemberRgModalHeader = styled(ModalHeader)`
+export const MemberRgMdModalHeader = styled(ModalHeader)`
   height: 6.8%;
 `;
 
-export const MemberRgModalContent = styled.div`
+export const MemberRgMdModalContent = styled.div`
   height: calc(100% - 6.8% - 7px);
 `;
 
-export const MemberInfo = styled.section`
+export const MemberBasicInfo = styled.section`
   height: 26.6%;
   .info-title {
     width: 18.5%;
@@ -121,7 +121,7 @@ export const InputWrapper = styled.div<Props>`
   }
 `;
 
-export const MemberRegisterInfo = styled.section`
+export const MemberRgMdInfo = styled.section`
   height: 60%;
   .info-title {
     width: 18.5%;
@@ -147,7 +147,7 @@ export const MemberRegisterInfo = styled.section`
   }
 `;
 
-export const MemberRegisterInfoWrapper = styled.div`
+export const MemberRgMdInfoWrapper = styled.div`
   height: calc(100% - 8.8%);
 
   .info-input {
@@ -207,6 +207,7 @@ export const ButtonWrapper = styled.div`
     background: #fff;
     border: 1px solid var(--2, #041f86);
   }
+  .modify,
   .register {
     color: #fff;
     background: #041f86;

@@ -8,14 +8,26 @@ import {
 
 interface Props {
   instructor: { [key: string]: string };
-  isClickedModify: boolean;
+  isClickedEdit: boolean;
+  handleDetailModal: () => void;
+  getInstructorInfo: Function;
 }
 
-const InstructorCard = ({ instructor, isClickedModify }: Props) => {
+const InstructorCard = ({
+  instructor,
+  isClickedEdit,
+  handleDetailModal,
+  getInstructorInfo,
+}: Props) => {
   return (
-    <InstructorCardWrapper>
+    <InstructorCardWrapper
+      onClick={() => {
+        handleDetailModal();
+        getInstructorInfo(instructor);
+      }}
+    >
       <input
-        className={`check-box ${isClickedModify && 'active'}`}
+        className={`check-box ${isClickedEdit && 'active'}`}
         type='checkbox'
       />
       <InstructorCardContent>

@@ -16,11 +16,13 @@ import {
 import Image from 'next/image';
 import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import { useCallback, useState } from 'react';
-import MemberRgModal from '@/app/_components/Modal/MemberRgModal';
 import ModalLayout from '@/app/_layout/ModalLayout';
+import MemberRgMdModal from '@/app/_components/Modal/MemberRgMdModal';
 
 const Member = () => {
   const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
+  const [isOpenModifyModal, setIsOpenModifyModal] = useState(false);
+
   const members = [
     {
       name: '김하정',
@@ -126,6 +128,10 @@ const Member = () => {
   const handleRegisterModal = useCallback(() => {
     setIsOpenRegisterModal((prev) => !prev);
   }, []);
+
+  const handleModifyModal = useCallback(() => {
+    setIsOpenModifyModal((prev) => !prev);
+  }, []);
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -179,7 +185,7 @@ const Member = () => {
             </TableHead>
             <TableBody>
               {members.map((member, i) => (
-                <tr key={member.id}>
+                <tr key={member.id} onClick={handleModifyModal}>
                   <td id='check-box'>
                     <input type='checkbox' />
                   </td>
@@ -226,7 +232,18 @@ const Member = () => {
         </PageContent>
         {isOpenRegisterModal && (
           <ModalLayout onCloseModal={handleRegisterModal}>
-            <MemberRgModal onCloseModal={handleRegisterModal} />
+            <MemberRgMdModal
+              title={'회원 등록'}
+              onCloseModal={handleRegisterModal}
+            />
+          </ModalLayout>
+        )}
+        {isOpenModifyModal && (
+          <ModalLayout onCloseModal={handleModifyModal}>
+            <MemberRgMdModal
+              title={'회원 수정'}
+              onCloseModal={handleModifyModal}
+            />
           </ModalLayout>
         )}
       </PageContentWrpper>

@@ -6,7 +6,7 @@ export const InstructorRegisterModal = styled.div`
   min-width: 362px;
   height: 32.5%;
   min-height: 351px;
-  padding: 1.1% 1.41%;
+  padding: 1.41% 1.1%;
   border-radius: 12px;
   border: 2px solid #a9a9a9;
   background: white;

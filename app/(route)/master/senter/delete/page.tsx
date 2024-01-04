@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { InputWrapper } from '@/app/_components/Modal/MemberRgModal/styles';
+import { InputWrapper } from '@/app/_components/Modal/MemberRgMdModal/styles';
 import Title from '@/app/_components/Title';
 import NavBar from '@/app/_layout/NavBar';
 import SubNav from '@/app/_layout/SubNav';

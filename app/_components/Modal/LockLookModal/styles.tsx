@@ -6,7 +6,7 @@ export const LockLookModalStyle = styled.div`
   min-width: 318px;
   height: 30.85%;
   min-height: 333px;
-  padding: 1.1% 1.41%;
+  padding: 1.41% 1.1%;
   border-radius: 12px;
   border: 2px solid #a9a9a9;
   background: white;

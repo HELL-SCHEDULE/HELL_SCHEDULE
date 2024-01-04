@@ -3,28 +3,29 @@ import Image from 'next/image';
 import {
   MemberInfoWrapper,
   InputWrapper,
-  MemberInfo,
-  MemberRegisterInfo,
-  MemberRegisterModal,
-  MemberRgModalContent,
-  MemberRgModalHeader,
-  MemberRegisterInfoWrapper,
+  MemberBasicInfo,
+  MemberRgMdInfo,
+  MemberRegisterModifyModal,
+  MemberRgMdModalContent,
+  MemberRgMdModalHeader,
+  MemberRgMdInfoWrapper,
   ButtonWrapper,
 } from './styles';
 
 interface Props {
+  title: string;
   onCloseModal: () => void;
 }
 
-const MemberRgModal = ({ onCloseModal }: Props) => {
+const MemberRgModal = ({ title, onCloseModal }: Props) => {
   const stopPropagation = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   }, []);
 
   return (
-    <MemberRegisterModal onClick={stopPropagation}>
-      <MemberRgModalHeader>
-        <span>회원 등록</span>
+    <MemberRegisterModifyModal onClick={stopPropagation}>
+      <MemberRgMdModalHeader>
+        <span>{title}</span>
         <Image
           onClick={onCloseModal}
           src='/icons/close_modal.svg'
@@ -33,9 +34,9 @@ const MemberRgModal = ({ onCloseModal }: Props) => {
           height={18}
           style={{ cursor: 'pointer' }}
         />
-      </MemberRgModalHeader>
-      <MemberRgModalContent>
-        <MemberInfo>
+      </MemberRgMdModalHeader>
+      <MemberRgMdModalContent>
+        <MemberBasicInfo>
           <div className='info-title'>회원 정보</div>
           <MemberInfoWrapper>
             <div className='cam'>
@@ -79,10 +80,10 @@ const MemberRgModal = ({ onCloseModal }: Props) => {
               </InputWrapper>
             </div>
           </MemberInfoWrapper>
-        </MemberInfo>
-        <MemberRegisterInfo>
+        </MemberBasicInfo>
+        <MemberRgMdInfo>
           <div className='info-title'>회원 등록</div>
-          <MemberRegisterInfoWrapper>
+          <MemberRgMdInfoWrapper>
             <div className='info-input'>
               <InputWrapper height={'8.8%'}>
                 <span className='input-title'>회원번호</span>
@@ -161,14 +162,18 @@ const MemberRgModal = ({ onCloseModal }: Props) => {
                 </div>
               </InputWrapper>
             </div>
-          </MemberRegisterInfoWrapper>
-        </MemberRegisterInfo>
+          </MemberRgMdInfoWrapper>
+        </MemberRgMdInfo>
         <ButtonWrapper>
           <button className='cancel'>취소</button>
-          <button className='register'>등록</button>
+          {title === '회원 등록' ? (
+            <button className='register'>등록</button>
+          ) : (
+            <button className='modify'>수정</button>
+          )}
         </ButtonWrapper>
-      </MemberRgModalContent>
-    </MemberRegisterModal>
+      </MemberRgMdModalContent>
+    </MemberRegisterModifyModal>
   );
 };
 

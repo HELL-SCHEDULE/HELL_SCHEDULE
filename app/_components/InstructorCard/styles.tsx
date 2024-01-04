@@ -5,6 +5,8 @@ export const InstructorCardWrapper = styled.div`
   width: 100%;
   height: 0;
   padding-bottom: 50%;
+  cursor: pointer;
+
   .check-box {
     width: 10%;
     aspect-ratio: 1/1;
