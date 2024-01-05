@@ -18,120 +18,65 @@ import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import { useCallback, useState } from 'react';
 import ModalLayout from '@/app/_layout/ModalLayout';
 import MemberRgMdModal from '@/app/_components/Modal/MemberRgMdModal';
+import MemberDetailModal from '@/app/_components/Modal/MemberDetailModal';
 
 const Member = () => {
-  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
-  const [isOpenModifyModal, setIsOpenModifyModal] = useState(false);
-
   const members = [
     {
       name: '김하정',
-      id: '0071',
-      phone_number: '010-****-****',
-      product: '그룹수업 10회권',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
       id: '0072',
       phone_number: '010-****-****',
-      product: '개인 1:1',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
+      product: [
+        {
+          name: '그룹수업 10회권',
+          period: '2023.12.25 ~ 2023.12.31',
+          allNumber: 10,
+          remain: 3,
+          price: 20000,
+          type: '카드',
+        },
+        {
+          name: '락커 3개월 이용권',
+          period: '2023.12.25 ~ 2023.12.31',
+          price: 20000,
+          number: 32,
+          type: '카드',
+        },
+      ],
       rocker: 32,
-      look: true,
       period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0073',
-      phone_number: '010-****-****',
-      product: '개인 1:1',
-      register_date: '2023.12.25 ~ 2023.12.31',
       instructor: '김하정',
-      count: 8,
-      rocker: 32,
       look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0071',
-      phone_number: '010-****-****',
-      product: '그룹수업 10회권',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0072',
-      phone_number: '010-****-****',
-      product: '개인 1:1',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0073',
-      phone_number: '010-****-****',
-      product: '개인 1:1',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0071',
-      phone_number: '010-****-****',
-      product: '그룹수업 10회권',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
-    },
-    {
-      name: '김하정',
-      id: '0072',
-      phone_number: '010-****-****',
-      product: '개인 1:1',
-      register_date: '2023.12.25 ~ 2023.12.31',
-      instructor: '김하정',
-      count: 8,
-      rocker: 32,
-      look: true,
-      period: '2023.12.25 ~ 2023.12.31',
     },
   ];
+
   const pagination = new Array(Math.ceil(members.length / 8))
     .fill(0)
     .map((v, i) => i + 1);
 
+  const [isOpenRegisterModal, setIsOpenRegisterModal] = useState(false);
   const handleRegisterModal = useCallback(() => {
     setIsOpenRegisterModal((prev) => !prev);
   }, []);
 
+  const [isOpenModifyModal, setIsOpenModifyModal] = useState(false);
   const handleModifyModal = useCallback(() => {
     setIsOpenModifyModal((prev) => !prev);
   }, []);
+
+  const [isOpenDetailModal, setIsOpenDetailModal] = useState(false);
+  const handleDetailModal = useCallback(() => {
+    setIsOpenDetailModal((prev) => !prev);
+  }, []);
+
+  const [memberInfo, setMemberInfo] = useState<{
+    [key: string]: any;
+  }>({});
+  const getMemberInfo = useCallback((member: { [key: string]: any }) => {
+    setMemberInfo(member);
+    console.log(member);
+  }, []);
+
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -185,7 +130,13 @@ const Member = () => {
             </TableHead>
             <TableBody>
               {members.map((member, i) => (
-                <tr key={member.id} onClick={handleModifyModal}>
+                <tr
+                  key={member.id}
+                  onClick={() => {
+                    handleDetailModal();
+                    getMemberInfo(member);
+                  }}
+                >
                   <td id='check-box'>
                     <input type='checkbox' />
                   </td>
@@ -197,10 +148,10 @@ const Member = () => {
                   </td>
                   <td id='id'>{member.id}</td>
                   <td id='phone-number'>{member.phone_number}</td>
-                  <td id='product'>{member.product}</td>
-                  <td id='register-date'>{member.register_date}</td>
+                  <td id='product'>{member.product[0].name}</td>
+                  <td id='register-date'>{member.product[0].period}</td>
                   <td id='instructor'>{member.instructor}</td>
-                  <td id='count'>{member.count} 회</td>
+                  <td id='count'>{member.product[0].remain} 회</td>
                   <td id='rocker'>{member.rocker} 번</td>
                   <td id='look'>{member.look ? 'O' : '-'}</td>
                   <td id='preiod'>{member.period}</td>
@@ -230,6 +181,14 @@ const Member = () => {
             </span>
           </Pagination>
         </PageContent>
+        {isOpenDetailModal && (
+          <ModalLayout onCloseModal={handleDetailModal}>
+            <MemberDetailModal
+              memberInfo={memberInfo}
+              onCloseModal={handleDetailModal}
+            />
+          </ModalLayout>
+        )}
         {isOpenRegisterModal && (
           <ModalLayout onCloseModal={handleRegisterModal}>
             <MemberRgMdModal
