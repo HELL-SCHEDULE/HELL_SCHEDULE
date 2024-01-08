@@ -7,24 +7,30 @@ import {
   TopSection,
 } from './styles';
 interface Props {
+  type: string;
   product: { [key: string]: string };
-  isClickedEdit: boolean;
-  handleModifyModal: () => void;
+  isClickedEdit?: boolean;
+  handleModifyModal?: () => void;
 }
 
-const ProductCard = ({ product, isClickedEdit, handleModifyModal }: Props) => {
+const ProductCard = ({
+  type,
+  product,
+  isClickedEdit,
+  handleModifyModal,
+}: Props) => {
   return (
-    <ProductCardWrapper>
+    <ProductCardWrapper type={type}>
       <input
         className={`check-box ${isClickedEdit && 'active'}`}
         type='checkbox'
       />
-      <ProductCardContent>
-        <TopSection>
+      <ProductCardContent type={type}>
+        <TopSection type={type}>
           <div className='name'>{product.name}</div>
           <div>{product.period}</div>
         </TopSection>
-        <BottomSection>
+        <BottomSection type={type}>
           <div>{product.price} 원</div>
           <div className='icon'>
             <Image
@@ -32,7 +38,7 @@ const ProductCard = ({ product, isClickedEdit, handleModifyModal }: Props) => {
               alt='modify'
               width={20}
               height={20}
-              onClick={() => handleModifyModal()}
+              onClick={() => handleModifyModal && handleModifyModal()}
             />
           </div>
         </BottomSection>

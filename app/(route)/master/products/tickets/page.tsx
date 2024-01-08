@@ -123,6 +123,7 @@ const Tickets = () => {
             {tickets.map((ticket, i) => (
               <ProductCard
                 key={i}
+                type={'상품 관리'}
                 product={ticket}
                 isClickedEdit={isClickedEdit}
                 handleModifyModal={handleModifyModal}

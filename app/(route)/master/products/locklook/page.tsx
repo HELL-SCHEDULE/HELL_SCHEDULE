@@ -153,6 +153,7 @@ const RockLook = () => {
             {looks.map((look, i) => (
               <ProductCard
                 key={i}
+                type={'상품 관리'}
                 product={look}
                 isClickedEdit={isClickedEdit}
                 handleModifyModal={handleModifyModal}

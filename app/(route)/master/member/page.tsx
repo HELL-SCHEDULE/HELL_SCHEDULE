@@ -29,7 +29,7 @@ const Member = () => {
       product: [
         {
           name: '그룹수업 10회권',
-          period: '2023.12.25 ~ 2023.12.31',
+          period: '3개월',
           allNumber: 10,
           remain: 3,
           price: 20000,
@@ -37,14 +37,14 @@ const Member = () => {
         },
         {
           name: '락커 3개월 이용권',
-          period: '2023.12.25 ~ 2023.12.31',
+          period: '3개월',
           price: 20000,
           number: 32,
           type: '카드',
         },
       ],
       rocker: 32,
-      period: '2023.12.25 ~ 2023.12.31',
+      period: '3개월',
       instructor: '김하정',
       look: true,
     },
@@ -186,6 +186,8 @@ const Member = () => {
             <MemberDetailModal
               memberInfo={memberInfo}
               onCloseModal={handleDetailModal}
+              handleModifyModal={handleModifyModal}
+              getMemberInfo={getMemberInfo}
             />
           </ModalLayout>
         )}
