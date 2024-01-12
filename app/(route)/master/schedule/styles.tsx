@@ -8,9 +8,23 @@ export const FullCalendarWapper = styled.div`
     width: 100%;
     height: 100%;
     --fc-today-bg-color: #fff;
-    --fc-border-color: red;
+    --fc-border-color: #e5e5e5;
+  }
+
+  .fc-toolbar {
+    display: none;
+  }
+
+  .fc-scrollgrid-section-body:nth-of-type(1) {
+    display: none;
+  }
+  .fc-view-harness-active {
+    height: 100% !important;
+    overflow: auto;
+  }
+  .fc-scroller-liquid-absolute {
     &::-webkit-scrollbar {
-      width: 8px; /* 스크롤바의 너비 */
+      width: 12px; /* 스크롤바의 너비 */
     }
 
     &::-webkit-scrollbar-thumb {
@@ -23,18 +37,6 @@ export const FullCalendarWapper = styled.div`
     &::-webkit-scrollbar-track {
       background: #e5e5e5; /*스크롤바 뒷 배경 색상*/
     }
-  }
-
-  .fc-toolbar {
-    display: none;
-  }
-
-  .fc-scrollgrid-section-body:nth-of-type(1) {
-    display: none;
-  }
-  .fc-view-harness-active {
-    height: 100%;
-    overflow: auto;
   }
   .fc-timegrid-slot-minor {
     border: none;
@@ -52,10 +54,29 @@ export const FullCalendarWapper = styled.div`
     height: 158px;
     border-top: 1px solid #e5e5e5;
   }
+
   thead[role='rowgroup'] .fc-scroller {
     overflow: hidden !important;
   }
+
   .fc-timegrid-divider {
     display: none;
+  }
+  .fc-timegrid-axis {
+    border-bottom: 1px solid #fff;
+  }
+  tr {
+    position: relative;
+  }
+  .fc-scrollgrid-shrink {
+    position: absolute;
+    top: -12px;
+    border: none;
+  }
+  td:first-child {
+    border-bottom: 1px solid #fff;
+  }
+  td[data-time='08:00:00'] {
+    transform: translateY(6px);
   }
 `;
