@@ -56,6 +56,7 @@ export const TableHead = styled.thead`
     height: 100%;
     display: flex;
     align-items: center;
+    // border-bottom: 1px solid #041f86;
   }
   & > tr > th {
     min-width: fit-content;
