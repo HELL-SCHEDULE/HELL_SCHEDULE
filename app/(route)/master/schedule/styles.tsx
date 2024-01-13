@@ -1,5 +1,10 @@
+import { PageContent } from '@/app/_layout/WebLayout/styles';
 import styled from 'styled-components';
 
+export const PageContentCustom = styled(PageContent)`
+  height: 90%;
+  padding-top: 0;
+`;
 export const FullCalendarWapper = styled.div`
   width: 100%;
   height: 100%;
@@ -10,11 +15,25 @@ export const FullCalendarWapper = styled.div`
     --fc-today-bg-color: #fff;
     --fc-border-color: #e5e5e5;
   }
-
-  .fc-toolbar {
-    display: none;
+  .fc-header-toolbar {
+    width: 21.3%;
+    min-width: 300px;
+  }
+  .fc-toolbar-title {
+    font-size: 22px;
+    @media all and (min-width: 1024px) and (max-width: 1919px) {
+      font-size: 18px;
+    }
   }
 
+  button[title='Today'] {
+    display: none;
+  }
+  button[type='button'] {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+  }
   .fc-scrollgrid-section-body:nth-of-type(1) {
     display: none;
   }
@@ -78,5 +97,66 @@ export const FullCalendarWapper = styled.div`
   }
   td[data-time='08:00:00'] {
     transform: translateY(6px);
+  }
+  .fc-col-header-cell-cushion {
+    width: 100%;
+    height: 100%;
+  }
+  .profile-wrapper {
+    padding: 5% 9%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 78%;
+  }
+  .profile-img {
+    width: 55px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+  }
+  .profile-name {
+    font-size: 16px;
+    font-weight: 600;
+    @media all and (min-width: 1024px) and (max-width: 1919px) {
+      font-size: 14px;
+    }
+  }
+  .class-info {
+    padding: 0 9%;
+    display: flex;
+    justify-content: end;
+    padding-top: 2%;
+    border-top: 1px solid #e5e5e5;
+    font-size: 14px;
+    font-weight: 400;
+    @media all and (min-width: 1024px) and (max-width: 1919px) {
+      font-size: 12px;
+    }
+  }
+
+  // event styles
+  --fc-event-text-color: black;
+  .fc-v-event {
+    background-color: #fff !important;
+    border-width: 1.8px;
+    padding: 12.3% 7%;
+  }
+  .fc-v-event .fc-event-main-frame {
+    gap: 13%;
+  }
+  .fc-event-title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .fc-event-time {
+    order: 2;
+    font-size: 14px;
+  }
+  .fc-button-primary:focus {
+    box-shadow: none;
+  }
+  .fc-license-message {
+    display: none;
   }
 `;
