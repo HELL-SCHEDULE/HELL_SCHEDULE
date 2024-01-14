@@ -19,7 +19,7 @@ export const NavBarWapper = styled.div`
   .nav-list {
     list-style: none;
     display: flex;
-    width: 48.68%;
+    width: 34.68%;
     justify-content: space-around;
     align-items: center;
     cursor: pointer;

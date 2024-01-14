@@ -6,34 +6,19 @@ import WebLayout from '@/app/_layout/WebLayout';
 import {
   BtnSection,
   FilterSection,
-  RightSection,
+  RightSectionCustom,
   SearchSection,
   TableBodyCustom,
   TableHeadCustom,
 } from './styles';
-import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import SubNav from '@/app/_layout/SubNav';
 import { ContentHeader, Section } from '@/app/_layout/SubNav/styles';
 import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
-import {
-  Pagination,
-  TableBody,
-  TableHead,
-} from '@/app/(route)/master/member/styles';
+import { Pagination } from '@/app/(route)/master/member/styles';
+import Filter from '@/app/_components/Filter';
 
 const Request = () => {
-  const [filterListToggle, setFilterListToggle] = useState(false);
-  const [filterValue, setFilterValue] = useState('요청별 현황');
-
-  const handleFilterValue = useCallback(
-    (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-      const text = (e.target as HTMLButtonElement).innerText;
-      setFilterValue(text);
-    },
-    []
-  );
-
   const request = [
     {
       tradeName: '헬스케줄1',
@@ -68,6 +53,7 @@ const Request = () => {
     .fill(0)
     .map((v, i) => i + 1);
 
+  const filterList = ['등록', '수정', '삭제'];
   return (
     <WebLayout>
       <NavBar user={'admin'} />
@@ -86,39 +72,9 @@ const Request = () => {
           </SubNav>
           <Section>
             <FilterSection>
-              <div
-                className='select'
-                onClick={() => {
-                  setFilterListToggle((prev) => !prev);
-                }}
-              >
-                <div className='selected'>
-                  <div className='selected-value'>{filterValue}</div>
-                  <div className='arrow'>v</div>
-                </div>
-                <ul className={`${filterListToggle ? 'active' : ''}`}>
-                  <li
-                    className={`${filterValue === '등록' && 'focus'}`}
-                    onClick={(e) => handleFilterValue(e)}
-                  >
-                    등록
-                  </li>
-                  <li
-                    className={`${filterValue === '수정' && 'focus'}`}
-                    onClick={(e) => handleFilterValue(e)}
-                  >
-                    수정
-                  </li>
-                  <li
-                    className={`${filterValue === '삭제' && 'focus'}`}
-                    onClick={(e) => handleFilterValue(e)}
-                  >
-                    삭제
-                  </li>
-                </ul>
-              </div>
+              <Filter filterTitle={'요청별 현황'} filterList={filterList} />
             </FilterSection>
-            <RightSection>
+            <RightSectionCustom>
               <SearchSection>
                 <input type='text'></input>
                 <div className='icon'></div>
@@ -127,7 +83,7 @@ const Request = () => {
                 <button>수락</button>
                 <button>거절</button>
               </BtnSection>
-            </RightSection>
+            </RightSectionCustom>
           </Section>
         </ContentHeader>
         <PageContent>

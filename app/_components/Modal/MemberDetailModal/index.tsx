@@ -28,7 +28,7 @@ import ProductDetailInfoCard from '../../ProductDetailInfoCard';
 interface Props {
   memberInfo: { [key: string]: any };
   onCloseModal: () => void;
-  handleModifyModal: () => void;
+  handleModifyModal?: () => void;
   getMemberInfo: Function;
 }
 
@@ -45,7 +45,7 @@ const MemberDetailModal = ({
 
   const onClickModifyIcon = useCallback(() => {
     getMemberInfo(memberInfo);
-    handleModifyModal();
+    handleModifyModal && handleModifyModal();
     onCloseModal();
   }, []);
 
@@ -54,14 +54,16 @@ const MemberDetailModal = ({
       <MemberDetailModalHeader>
         <span>
           {memberInfo.name}님의 수강권
-          <Image
-            onClick={onClickModifyIcon}
-            src='/icons/modify.svg'
-            alt='modify'
-            width={22}
-            height={22}
-            style={{ cursor: 'pointer' }}
-          />
+          {handleModifyModal && (
+            <Image
+              onClick={onClickModifyIcon}
+              src='/icons/modify.svg'
+              alt='modify'
+              width={22}
+              height={22}
+              style={{ cursor: 'pointer' }}
+            />
+          )}
         </span>
         <Image
           onClick={onCloseModal}

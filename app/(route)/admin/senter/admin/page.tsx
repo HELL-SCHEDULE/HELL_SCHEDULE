@@ -7,14 +7,13 @@ import React from 'react';
 
 import SubNav from '@/app/_layout/SubNav';
 import Link from 'next/link';
-import { ContentHeader, Section } from '@/app/_layout/SubNav/styles';
 import {
+  ContentHeader,
   RightSection,
-  BtnSection,
   SearchSection,
-  TableHeadCustom,
-  TableBodyCustom,
-} from './styles';
+  Section,
+} from '@/app/_layout/SubNav/styles';
+import { BtnSection, TableHeadCustom, TableBodyCustom } from './styles';
 import { PageContent, PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import { Pagination } from '@/app/(route)/master/member/styles';
 

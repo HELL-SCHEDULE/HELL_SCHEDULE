@@ -3,15 +3,15 @@ import Image from 'next/image';
 import Title from '@/app/_components/Title';
 import NavBar from '@/app/_layout/NavBar';
 import SubNav from '@/app/_layout/SubNav';
-import { ContentHeader, Section } from '@/app/_layout/SubNav/styles';
-import WebLayout from '@/app/_layout/WebLayout';
-import Link from 'next/link';
 import {
-  BtnSection,
-  Pagination,
+  ContentHeader,
   RightSection,
   SearchSection,
-} from '../../member/styles';
+  Section,
+} from '@/app/_layout/SubNav/styles';
+import WebLayout from '@/app/_layout/WebLayout';
+import Link from 'next/link';
+import { BtnSection, Pagination } from '../../member/styles';
 import {
   Content,
   PageContent,

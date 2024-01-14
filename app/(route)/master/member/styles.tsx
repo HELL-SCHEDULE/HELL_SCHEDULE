@@ -1,40 +1,32 @@
 import styled from 'styled-components';
 
-export const RightSection = styled.div`
-  width: 100%;
+export const FilterSection = styled.div`
+  width: 50%;
   height: 100%;
   display: flex;
-  justify-content: end;
   align-items: center;
   gap: 2%;
-`;
-
-export const SearchSection = styled.div`
-  width: 14.35%;
-  min-width: 200px;
-  height: 100%;
-  display: flex;
-
-  & > input {
-    width: 80%;
-    height: 100%;
-    border-top-left-radius: 24px;
-    border-bottom-left-radius: 24px;
-    border: 1px solid #c4c4c4;
+  position: absolute;
+  left: 0;
+  .filter-date {
+    width: 21%;
+    height: 84%;
+    border-radius: 12px;
+    border: 1px solid var(--2, #041f86);
+    cursor: pointer;
+    padding: 1% 0.5%;
   }
-  & > .icon {
-    width: 20%;
+  .filter-wrapper {
+    width: 21%;
     height: 100%;
-    border: 1px solid #c4c4c4;
-    border-top-right-radius: 24px;
-    border-bottom-right-radius: 24px;
-    border-left: 1px solid #c4c4c4;
+    display: flex;
   }
 `;
+
 export const BtnSection = styled.div`
-  width: 16.52%;
+  width: 33%;
   min-width: 100px;
-  height: 100%;
+  height: 84%;
   display: flex;
   gap: 9%;
   & > button {

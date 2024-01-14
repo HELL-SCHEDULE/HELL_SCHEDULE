@@ -2,14 +2,18 @@
 import Title from '@/app/_components/Title';
 import NavBar from '@/app/_layout/NavBar';
 import SubNav from '@/app/_layout/SubNav';
-import { ContentHeader, Section } from '@/app/_layout/SubNav/styles';
+import {
+  ContentHeader,
+  RightSection,
+  SearchSection,
+  Section,
+} from '@/app/_layout/SubNav/styles';
 import WebLayout from '@/app/_layout/WebLayout';
 import Link from 'next/link';
 import {
   BtnSection,
+  FilterSection,
   Pagination,
-  RightSection,
-  SearchSection,
   TableBody,
   TableHead,
 } from './styles';
@@ -19,6 +23,7 @@ import { useCallback, useState } from 'react';
 import ModalLayout from '@/app/_layout/ModalLayout';
 import MemberRgMdModal from '@/app/_components/Modal/MemberRgMdModal';
 import MemberDetailModal from '@/app/_components/Modal/MemberDetailModal';
+import Filter from '@/app/_components/Filter';
 
 const Member = () => {
   const members = [
@@ -77,6 +82,9 @@ const Member = () => {
     console.log(member);
   }, []);
 
+  const productFilterList = ['수강권 A', '수강권 B', '수강권 C'];
+  const instructorFilterList = ['김하정 1', '김하정 2', '김하정 3'];
+
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -91,6 +99,21 @@ const Member = () => {
             </ul>
           </SubNav>
           <Section>
+            <FilterSection>
+              <input className='filter-date' type='date' />
+              <div className='filter-wrapper'>
+                <Filter
+                  filterTitle='수강권별 보기'
+                  filterList={productFilterList}
+                />
+              </div>
+              <div className='filter-wrapper'>
+                <Filter
+                  filterTitle='강사별 보기'
+                  filterList={instructorFilterList}
+                />
+              </div>
+            </FilterSection>
             <RightSection>
               <SearchSection>
                 <input type='text'></input>

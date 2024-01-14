@@ -123,6 +123,7 @@ export const FullCalendarWapper = styled.div`
     }
   }
   .class-info {
+    color: #000 !important;
     padding: 0 9%;
     display: flex;
     justify-content: end;
@@ -158,5 +159,34 @@ export const FullCalendarWapper = styled.div`
   }
   .fc-license-message {
     display: none;
+  }
+  .fc-day-sun {
+    color: #f61414;
+  }
+  .fc-day-sat {
+    color: rgba(18, 52, 184, 0.86);
+  }
+  .week {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .day {
+    font-size: 16px;
+    border-radius: 50%;
+    width: 22%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 16%;
+  }
+  #true {
+    background: #041f86;
+    color: white;
   }
 `;

@@ -7,7 +7,7 @@ interface Props {
 
 const TitleStyle = styled.div`
   height: 8%;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   display: flex;
   align-items: center;

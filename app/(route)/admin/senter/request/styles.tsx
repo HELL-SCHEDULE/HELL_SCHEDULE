@@ -1,4 +1,5 @@
 import { TableBody, TableHead } from '@/app/(route)/master/member/styles';
+import { RightSection } from '@/app/_layout/SubNav/styles';
 import styled from 'styled-components';
 
 export const FilterSection = styled.div`
@@ -6,68 +7,17 @@ export const FilterSection = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  .select {
-    display: inline-block;
-    width: 100%;
-    min-width: 120px;
-    height: 84%;
-    border-radius: 12px;
-    border: 1px solid var(--2, #041f86);
-  }
-  .select .selected {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 3% 2%;
-  }
-  .select .selected .selected-value {
-    width: 85%;
-    display: flex;
-    align-items: center;
-  }
-  .select .selected .arrow {
-    width: 15%;
-  }
-  .select > ul {
-    display: none;
-    width: 6.4%;
-    min-width: 120px;
-    list-style: none;
-    padding-left: 0px;
-    border: 1px solid var(--2, #041f86);
-    position: absolute;
-    background: #fff;
-    border-top: none;
-    margin-top: 0.2%;
-    cursor: pointer;
-  }
-  .select .active {
-    display: initial;
-  }
-  .select > ul > li {
-    padding: 3% 2%;
-  }
-  .select ul li:hover {
-    background: #e7edfc;
-  }
-  .select .focus {
-    background: #e7edfc;
-  }
+  position: absolute;
+  left: 0;
 `;
 
-export const RightSection = styled.div`
-  width: 33.2%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
+export const RightSectionCustom = styled(RightSection)`
   gap: 5%;
 `;
 export const SearchSection = styled.div`
-  width: 43.2%;
+  width: 28.7%;
   min-width: 200px;
-  height: 100%;
+  height: 84%;
   display: flex;
 
   & > input {
@@ -87,9 +37,9 @@ export const SearchSection = styled.div`
   }
 `;
 export const BtnSection = styled.div`
-  width: 49.9%;
+  width: 33%;
   min-width: 100px;
-  height: 100%;
+  height: 84%;
   display: flex;
   gap: 9%;
   & > button {

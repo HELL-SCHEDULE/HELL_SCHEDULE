@@ -22,17 +22,20 @@ export const SubNavStyles = styled.div`
     font-weight: 600;
   }
   @media all and (min-width: 1024px) and (max-width: 1919px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
 export const ContentHeader = styled.div`
-  height: 4.98%;
+  height: 4.9%;
   min-height: 35px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media all and (min-width: 1024px) and (max-width: 1919px) {
+    height: 3.98%;
+  }
 `;
 
 export const Section = styled.div`
@@ -40,7 +43,39 @@ export const Section = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
-  gap: 5%;
+  position: relative;
+`;
+
+export const RightSection = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 4%;
+`;
+
+export const SearchSection = styled.div`
+  width: 28.7%;
+  min-width: 200px;
+  height: 84%;
+  display: flex;
+
+  & > input {
+    width: 80%;
+    height: 100%;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border: 1px solid #c4c4c4;
+  }
+  & > .icon {
+    width: 20%;
+    height: 100%;
+    border: 1px solid #c4c4c4;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-left: 1px solid #c4c4c4;
+  }
 `;
