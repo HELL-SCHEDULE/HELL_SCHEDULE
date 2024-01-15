@@ -9,6 +9,8 @@ import WebLayout from '@/app/_layout/WebLayout';
 import { PageContentWrpper } from '@/app/_layout/WebLayout/styles';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Check = () => {
   const instructor = [
@@ -92,15 +94,23 @@ const Check = () => {
       });
     })
     .flat(Infinity);
+
+  const router = useRouter();
+  const routeToScheduleSetting = useCallback(() => {
+    router.push('/instructor/schedule/register');
+  }, []);
+
   return (
     <WebLayout>
-      <NavBar user={'master'} />
+      <NavBar user={'instructor'} />
       <PageContentWrpper>
         <Title title={'일정 관리'} />
         <PageContentCustom>
           <FullCalendarWapper>
+            <button className='register-btn' onClick={routeToScheduleSetting}>
+              등록
+            </button>
             <FullCalendar
-              locale={'ko'}
               plugins={[timeGridPlugin]}
               initialView='timeGridWeek'
               headerToolbar={{
@@ -114,14 +124,12 @@ const Check = () => {
               }}
               dayHeaderContent={(label) => {
                 console.log(label);
-                const [month, day, week] = label.text.split('. ');
+                const [week, day] = label.text.split(' ');
                 return {
                   html:
-                    `<div class="week">${
-                      week.split('')[1]
-                    }요일</div> <div class=day id=` +
+                    `<div class="week">${week}</div> <div class=day id=` +
                     label.isToday +
-                    `>${day}</div> <div class="class-info">수업 ${
+                    `>${day.split('/')[1]}</div> <div class="class-info">수업 ${
                       instructor[label.dow].classNum
                     }</div>`,
                 };
@@ -129,7 +137,7 @@ const Check = () => {
               events={event}
               eventContent={(event) => {
                 return {
-                  html: `<div>${event.event._def.title}</div><div>${event.timeText}</div><button>출석완료</button>`,
+                  html: `<div class="fc-event-main-frame"><div class="fc-event-title">${event.event._def.title}</div><div class="fc-event-time">${event.timeText}</div></div><button class="class-attend">출석완료</button>`,
                 };
               }}
               slotMinTime={'08:00'} // Day 캘린더에서 시작 시간
