@@ -10,6 +10,10 @@ export const SenterCardStyle = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 16px;
+    @media (min-width: 1024px) and (max-width: 1919px) {
+      font-size: 14px;
+    }
 }
 `;
 
@@ -50,6 +54,7 @@ export const ButtonSection = styled.div`
   height: 15%;
   justify-content: flex-end;
   gap: 3%;
+
   & > button {
     width: 17.8%;
     height: 100%;

@@ -33,15 +33,9 @@ const Mypage = () => {
       phoneNumber: '010-****-****',
       address: '대전 어딘가',
     },
-    // {
-    //   senterName: '헬스케줄2',
-    //   masterName: '김하정2',
-    //   phoneNumber: '010-****-****',
-    //   address: '대전 어딘가',
-    // },
   ];
   // 프로필 수정 누르면 input활성화
-
+  // 관리, 요청에 따른 버튼
   return (
     <WebLayout>
       <NavBar user={'instructor'} />
@@ -51,7 +45,7 @@ const Mypage = () => {
           <SubNav>
             <ul>
               <li className='active'>관리</li>
-              <li className='active'>요청</li>
+              <li>요청</li>
             </ul>
           </SubNav>
         </ContentHeader>
