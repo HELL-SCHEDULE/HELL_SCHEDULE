@@ -43,6 +43,10 @@ export const SenterButtonWrapper = styled.div`
     border-radius: 8px;
     color: #767676;
     cursor: pointer;
+    :hover {
+      color: #041f86;
+      border: 1px solid #041f86;
+    }
   }
 `;
 export const ChoiceButtonWrapper = styled.div`
@@ -54,5 +58,8 @@ export const ChoiceButtonWrapper = styled.div`
     border: 1px solid #d9d9d9;
     color: white;
     cursor: pointer;
+    :hover {
+      background: #61646b;
+    }
   }
 `;
