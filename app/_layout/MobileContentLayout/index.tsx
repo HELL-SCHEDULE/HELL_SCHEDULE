@@ -27,7 +27,7 @@ const MobileContentLayout = ({ title, children }: Props) => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                style={{ width: '45%', height: 'auto' }}
+                style={{ width: '42%', height: 'auto' }}
               />
               <div>수강권</div>
             </Link>
@@ -40,7 +40,7 @@ const MobileContentLayout = ({ title, children }: Props) => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                style={{ width: '45%', height: 'auto' }}
+                style={{ width: '42%', height: 'auto' }}
               />
               <div>수업 예약</div>
             </Link>
@@ -53,7 +53,7 @@ const MobileContentLayout = ({ title, children }: Props) => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                style={{ width: '45%', height: 'auto' }}
+                style={{ width: '42%', height: 'auto' }}
               />
               <div>이용 내역</div>
             </Link>
@@ -66,7 +66,7 @@ const MobileContentLayout = ({ title, children }: Props) => {
                 width={0}
                 height={0}
                 sizes='100vw'
-                style={{ width: '45%', height: 'auto' }}
+                style={{ width: '42%', height: 'auto' }}
               />
               <div>마이페이지</div>
             </Link>
