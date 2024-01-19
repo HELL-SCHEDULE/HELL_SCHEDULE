@@ -76,6 +76,7 @@ const Reservation = () => {
               return `${date.date.year}년 ${date.date.month + 1}월`;
             }}
             dayHeaderContent={(label) => {
+              console.log(label);
               setCalendarType(label.view.type);
               if (label.view.type == 'timeGridWeek') {
                 const [week, day] = label.text.split(' ');
@@ -89,7 +90,7 @@ const Reservation = () => {
               } else {
                 return {
                   html: `<div class="week">
-                      달
+                      ${label.text}
                      </div> `,
                 };
               }

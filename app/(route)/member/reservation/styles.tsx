@@ -36,6 +36,7 @@ export const CalendarSection = styled.div<Props>`
   height: ${(props) => (props.type == 'timeGridWeek' ? '20%' : '49%')};
   padding: 0 4%;
   margin-top: 3%;
+  --fc-today-bg-color: none;
   .fc-direction-ltr {
     height: 100% !important;
   }
@@ -61,11 +62,21 @@ export const CalendarSection = styled.div<Props>`
     display: flex;
     padding: 2px 4px;
     flex-direction: column;
-    gap: 21%;
+    gap: 13%;
     font-size: 12px;
+    align-items: center;
   }
-  .fc-scrollgrid table {
-    table-layout: auto;
+  .day {
+    width: 62%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .fc-day-today .day {
+    background: #041f86;
+    color: white;
   }
   .fc-scroller-harness,
   .fc-scroller,
@@ -93,6 +104,23 @@ export const CalendarSection = styled.div<Props>`
   }
   .fc-day-sat {
     color: #1234b8db;
+  }
+  .fc-daygrid-day-events {
+    min-height: 0 !important;
+  }
+  .fc-theme-standard td {
+    border: none;
+  }
+  .fc-daygrid-day-top {
+    justify-content: center;
+  }
+  .fc-day-today .fc-daygrid-day-number {
+    aspect-ratio: 1/1;
+    width: 58%;
+    background: #041f86;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
   }
   button[title='주간 view'] {
     transform: translateX(-50%);
@@ -139,7 +167,7 @@ export const SelectClassSection = styled.div<Props>`
     background: #e5e5e5; /*스크롤바 뒷 배경 색상*/
   }
   .class-card-wrapper {
-    height: ${(props) => (props.type == 'timeGridWeek' ? '27.3%' : '41%')};
+    height: ${(props) => (props.type == 'timeGridWeek' ? '27.3%' : '46%')};
     padding: 2% 3.5%;
     margin-bottom: 2%;
   }
