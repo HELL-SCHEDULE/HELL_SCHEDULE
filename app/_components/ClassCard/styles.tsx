@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const ClassCardStyle = styled.div`
+interface Props {
+  type: string;
+}
+export const ClassCardStyle = styled.div<Props>`
   width: 100%;
   height: 100%;
-  .class-date {
+  position: relative;
+  .class-header {
     height: 27%;
     display: flex;
     align-items: center;
@@ -20,9 +24,20 @@ export const ClassCardStyle = styled.div`
       transform: translateY(7%);
     }
   }
+  .class-state button {
+    display: ${(props) => (props.type == 'state' ? 'inline-block' : 'none')};
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 12px;
+    font-size: 10px;
+    padding: 0.7% 1.8%;
+    border: 1px solid #464444;
+    color: #464444;
+  }
 
   .class-info-wrapper {
-    background: #f4f4f4;
+    background: ${(props) => (props.type == 'state' ? 'white' : '#f4f4f4')};
     border-radius: 12px;
     margin-top: 1%;
     padding: 2% 5%;
@@ -33,7 +48,7 @@ export const ClassCardStyle = styled.div`
   .profile-wrapper {
     // width: 17%;
     aspect-ratio: 1/1;
-    background: white;
+    background: ${(props) => (props.type == 'state' ? '#f4f4f4' : 'white')};
     border-radius: 50%;
     display: flex;
     align-items: center;

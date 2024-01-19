@@ -10,7 +10,6 @@ export const Header = styled.div`
 export const Content = styled.div`
   height: calc(100% - 17%);
   font-size: 14px;
-  padding: 0 3%;
 `;
 export const NavBar = styled.div`
   height: 10%;
