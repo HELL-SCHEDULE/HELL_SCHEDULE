@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 // import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -20,11 +20,26 @@ import {
   SenterButtonWrapper,
   ChoiceButtonWrapper,
 } from './syles';
+import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 
 // 로그인 성공하면 쿼리스트링으로 회원인지 강사인지 넘겨줌
 
 const SelectSenter = () => {
-  const senter = ['센터 A', '센터 B'];
+  const center = ['센터 A', '센터 B'];
+  const router = useRouter();
+
+  const goBack = useCallback(() => {
+    router.back();
+  }, []);
+  const params = useSearchParams();
+  const title = params.get('title');
+
+  const [isClickedDeleteBtn, setIsClickedDeleteBtn] = useState(false);
+  const visibleDeleteBtn = useCallback(() => {
+    setIsClickedDeleteBtn((prev) => !prev);
+  }, []);
+
   return (
     <MobileLayout>
       <PageWrapper>
@@ -34,8 +49,9 @@ const SelectSenter = () => {
             alt='arrow_left'
             width={15}
             height={15}
+            onClick={goBack}
           />
-          시설 선택
+          {title}
         </PageHeader>
         <PageInfo>
           <Image
@@ -46,13 +62,34 @@ const SelectSenter = () => {
             sizes='100vw'
             style={{ width: '35%', height: 'auto' }}
           />
-          <div className='description'>
-            이용하실 시설을 <br /> 선택해주세요.
-          </div>
+          {title == '시설 조회' ? (
+            <div className='description'>
+              {center.length} 개의 시설을 <br /> 이용하고 있어요.
+              <span className='center-delete' onClick={visibleDeleteBtn}>
+                {isClickedDeleteBtn ? '삭제 취소' : '시설 삭제'}
+              </span>
+            </div>
+          ) : (
+            <div className='description'>
+              이용하실 시설을 <br /> 선택해주세요.
+            </div>
+          )}
         </PageInfo>
         <SenterButtonWrapper>
-          {senter.map((item, i) => (
-            <button key={i}>{item}</button>
+          {center.map((item, i) => (
+            <div key={i}>
+              <button className='center-button' key={i}>
+                {item}
+              </button>
+              <div className={`delete ${isClickedDeleteBtn && 'visible'}`}>
+                <Image
+                  src='/icons/delete.svg'
+                  alt='delete'
+                  width={16}
+                  height={16}
+                />
+              </div>
+            </div>
           ))}
         </SenterButtonWrapper>
         <ChoiceButtonWrapper>

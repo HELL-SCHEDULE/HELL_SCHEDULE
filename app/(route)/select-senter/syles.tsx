@@ -13,6 +13,9 @@ export const PageHeader = styled.div`
   justify-content: flex-start;
   gap: 4%;
   padding: 0 3%;
+  & > img {
+    cursor: pointer;
+  }
 `;
 export const PageInfo = styled.div`
   height: 30%;
@@ -26,6 +29,16 @@ export const PageInfo = styled.div`
     font-weight: 600;
     line-height: 159%;
     margin-top: 3%;
+    position: relative;
+  }
+  .center-delete {
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+    position: absolute;
+    top: 26%;
+    right: 4%;
+    cursor: pointer;
   }
 `;
 export const SenterButtonWrapper = styled.div`
@@ -35,18 +48,37 @@ export const SenterButtonWrapper = styled.div`
   flex-direction: column;
   gap: 4%;
   overflow-y: auto;
-  & > button {
+  & > div {
     width: 100%;
     height: 13%;
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+  }
+  .center-button {
+    width: 100%;
+    height: 100%;
     background: white;
     border: 1px solid #d9d9d9;
     border-radius: 8px;
     color: #767676;
+    // cursor: pointer;
+    // :hover {
+    //   color: #041f86;
+    //   border: 1px solid #041f86;
+    // }
+  }
+  .delete {
+    width: 11%;
+    display: none;
+  }
+  .visible {
+    width: 11%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
     cursor: pointer;
-    :hover {
-      color: #041f86;
-      border: 1px solid #041f86;
-    }
   }
 `;
 export const ChoiceButtonWrapper = styled.div`

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import MobileContentLayout from '@/app/_layout/MobileContentLayout';
 import {
   CalendarSection,
@@ -11,6 +11,7 @@ import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import ClassCard from '@/app/_components/ClassCard';
+import { useRouter } from 'next/navigation';
 
 const Reservation = () => {
   const [calendarType, setCalendarType] = useState('timeGridWeek');
@@ -49,12 +50,18 @@ const Reservation = () => {
     },
   ];
 
+  const router = useRouter();
+  const routeToSeleteProduct = useCallback(() => {
+    // router.push('/select-senter?시설조회');
+    // 수강권 선택 페이지
+  }, []);
+
   return (
     <MobileContentLayout title='수업 예약'>
       <ReservationPage>
         <SelectProduct>
           <div>1:1 그룹 30회권</div>
-          <button>변경</button>
+          <button onClick={routeToSeleteProduct}>변경</button>
         </SelectProduct>
         <CalendarSection
           type={calendarType == 'timeGridWeek' ? 'timeGridWeek' : 'dayGridWeek'}

@@ -29,6 +29,7 @@ export const SelectProduct = styled.div`
     font-size: 12px;
     color: #464444;
     font-weight: 600;
+    cursor: pointer;
   }
 `;
 export const CalendarSection = styled.div<Props>`
