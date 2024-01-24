@@ -52,8 +52,7 @@ const Reservation = () => {
 
   const router = useRouter();
   const routeToSeleteProduct = useCallback(() => {
-    // router.push('/select-senter?시설조회');
-    // 수강권 선택 페이지
+    router.push('/member/select-product?title=수강권 선택');
   }, []);
 
   return (

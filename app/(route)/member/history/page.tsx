@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react';
 import MobileContentLayout from '@/app/_layout/MobileContentLayout';
 import {
   CalendarSection,
-  ReservationPage,
+  HistoryPage,
   SelectClassSection,
   SelectProduct,
 } from './styles';
@@ -52,8 +52,7 @@ const History = () => {
 
   const router = useRouter();
   const routeToSeleteProduct = useCallback(() => {
-    router.push('/select-senter?title=시설 조회');
-    // 수강권 선택 페이지
+    router.push('/member/select-product?title=수강권 선택');
   }, []);
 
   const event = [
@@ -73,7 +72,7 @@ const History = () => {
 
   return (
     <MobileContentLayout title='이용 내역'>
-      <ReservationPage>
+      <HistoryPage>
         <SelectProduct>
           <div>1:1 그룹 30회권</div>
           <button onClick={routeToSeleteProduct}>변경</button>
@@ -141,7 +140,7 @@ const History = () => {
             </div>
           ))}
         </SelectClassSection>
-      </ReservationPage>
+      </HistoryPage>
     </MobileContentLayout>
   );
 };

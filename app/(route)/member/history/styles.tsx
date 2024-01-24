@@ -4,7 +4,7 @@ interface Props {
   type: string;
 }
 
-export const ReservationPage = styled.div`
+export const HistoryPage = styled.div`
   width: 100%;
   height: 100%;
 `;
