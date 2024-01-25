@@ -22,6 +22,22 @@ const Mypage = () => {
     router.push('/select-senter?title=시설 조회');
   }, []);
 
+  const routeToProductSearch = useCallback(() => {
+    router.push('/member/select-product?title=수강권 조회');
+  }, []);
+
+  const routeToModifyName = useCallback(() => {
+    router.push('/member/myinfo-modify/name');
+  }, []);
+
+  const routeToModifyEmail = useCallback(() => {
+    router.push('/member/myinfo-modify/email');
+  }, []);
+
+  const routeToModifyPassword = useCallback(() => {
+    router.push('/member/myinfo-modify/password');
+  }, []);
+
   return (
     <MobileContentLayout title='마이페이지'>
       <MypageStyle>
@@ -58,7 +74,7 @@ const Mypage = () => {
                 height={18}
               />
             </div>
-            <div className='info-list-item'>
+            <div className='info-list-item' onClick={routeToProductSearch}>
               <div>수강권 조회</div>
               <Image
                 src='/icons/arrow_right.svg'
@@ -72,7 +88,7 @@ const Mypage = () => {
         <MyInfoModify>
           <div className='title'>내 정보 수정</div>
           <div className='info-list'>
-            <div className='info-list-item'>
+            <div className='info-list-item' onClick={routeToModifyName}>
               <div>프로필 수정</div>
               <Image
                 src='/icons/arrow_right.svg'
@@ -81,7 +97,7 @@ const Mypage = () => {
                 height={18}
               />
             </div>
-            <div className='info-list-item'>
+            <div className='info-list-item' onClick={routeToModifyEmail}>
               <div>이메일 변경</div>
               <Image
                 src='/icons/arrow_right.svg'
@@ -90,7 +106,7 @@ const Mypage = () => {
                 height={18}
               />
             </div>
-            <div className='info-list-item'>
+            <div className='info-list-item' onClick={routeToModifyPassword}>
               <div>비밀번호 변경</div>
               <Image
                 src='/icons/arrow_right.svg'
