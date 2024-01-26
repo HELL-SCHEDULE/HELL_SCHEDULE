@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import MobileLayout from '@/app/_layout/MobileLayout';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   ModifyButtonWrapper,
   ModifyContent,
@@ -11,12 +11,18 @@ import {
   PageWrapper,
 } from './styles';
 import { useRouter } from 'next/navigation';
+import ToastModal from '@/app/_components/ToastModal';
 
 const Password = () => {
   const router = useRouter();
 
   const goBack = useCallback(() => {
     router.back();
+  }, []);
+
+  const [isOpenToastModal, setIsOpenToastModal] = useState(false);
+  const changePasswordHandler = useCallback(() => {
+    setIsOpenToastModal((prev) => !prev);
   }, []);
 
   return (
@@ -92,9 +98,16 @@ const Password = () => {
             </div>
           </ModifyContent>
           <ModifyButtonWrapper>
-            <button>비밀번호 변경하기</button>
+            <button onClick={changePasswordHandler}>비밀번호 변경하기</button>
           </ModifyButtonWrapper>
         </PageContent>
+        {isOpenToastModal && (
+          <ToastModal
+            type={'비밀번호'}
+            email='gkwjd719@naver.com'
+            onCloseModal={changePasswordHandler}
+          />
+        )}
       </PageWrapper>
     </MobileLayout>
   );

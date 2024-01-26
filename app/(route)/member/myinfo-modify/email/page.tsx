@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import MobileLayout from '@/app/_layout/MobileLayout';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   ModifyButtonWrapper,
   ModifyContent,
@@ -11,12 +11,18 @@ import {
   PageWrapper,
 } from './styles';
 import { useRouter } from 'next/navigation';
+import ToastModal from '@/app/_components/ToastModal';
 
 const Email = () => {
   const router = useRouter();
 
   const goBack = useCallback(() => {
     router.back();
+  }, []);
+
+  const [isOpenToastModal, setIsOpenToastModal] = useState(false);
+  const changeEmailHandler = useCallback(() => {
+    setIsOpenToastModal((prev) => !prev);
   }, []);
 
   return (
@@ -74,9 +80,16 @@ const Email = () => {
             </div>
           </ModifyContent>
           <ModifyButtonWrapper>
-            <button>변경하기</button>
+            <button onClick={changeEmailHandler}>변경하기</button>
           </ModifyButtonWrapper>
         </PageContent>
+        {isOpenToastModal && (
+          <ToastModal
+            type={'이메일'}
+            email='gkwjd719@naver.com'
+            onCloseModal={changeEmailHandler}
+          />
+        )}
       </PageWrapper>
     </MobileLayout>
   );
