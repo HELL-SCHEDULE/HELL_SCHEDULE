@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Image from 'next/image';
 import { ClassCardStyle } from './styles';
+import WaitToastModal from '../WaitToastModal';
 
 interface Props {
   classInfo: { [key: string]: string };
 }
 const ClassCard = ({ classInfo }: Props) => {
   // 예약가능, 예약완료, 대기가능,// 출석 완료, 미출석
+  const [isOpenWaitToastModal, setIsOpenWaitToastModal] = useState(false);
+
+  const onClickWaitHandler = useCallback(() => {
+    console.log('dd');
+    setIsOpenWaitToastModal((prev) => !prev);
+  }, []);
+
+  const classTypeClassify = useCallback((type: string) => {
+    if (type === '대기가능') {
+      onClickWaitHandler();
+    }
+  }, []);
 
   return (
     <ClassCardStyle type={classInfo.state ? 'state' : ''}>
       <div className='class-header'>
         <div>{classInfo.date}</div>
         <div className='class-state'>
-          <button>{classInfo.state && classInfo.state}</button>
+          <button
+            onClick={() => {
+              classTypeClassify(classInfo.state && classInfo.state);
+            }}
+          >
+            {classInfo.state && classInfo.state}
+          </button>
         </div>
       </div>
       <div className='class-info-wrapper'>
@@ -32,6 +51,12 @@ const ClassCard = ({ classInfo }: Props) => {
           <div className='class-instructor'>{classInfo.instructorName}</div>
         </div>
       </div>
+      {isOpenWaitToastModal && (
+        <WaitToastModal
+          classInfo={classInfo}
+          onCloseModal={onClickWaitHandler}
+        />
+      )}
     </ClassCardStyle>
   );
 };

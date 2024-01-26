@@ -34,6 +34,7 @@ export const ClassCardStyle = styled.div<Props>`
     padding: 0.7% 1.8%;
     border: 1px solid #464444;
     color: #464444;
+    cursor: pointer;
   }
 
   .class-info-wrapper {
