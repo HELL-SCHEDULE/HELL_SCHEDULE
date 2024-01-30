@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+interface Props {
+  count: number;
+}
 export const WaitToastModalWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -90,20 +93,21 @@ export const DescriptionSection = styled.div`
   }
 `;
 
-export const ButtonSection = styled.div`
+export const ButtonSection = styled.div<Props>`
   height: 14.6%;
   border-top: 1px solid gray;
   & > button {
-    width: 50%;
+    width: ${(props) => props.count && `calc(100% / ${props.count})`};
     height: 100%;
     border: none;
+    cursor: pointer;
     :first-child {
       background: white;
       color: #61646b;
     }
     :last-child {
-      background: #041f86;
-      color: white;
+      background: ${(props) => (props.count === 1 ? `white` : `#041f86`)};
+      color: ${(props) => (props.count === 1 ? `#61646b` : `white`)};
     }
   }
 `;

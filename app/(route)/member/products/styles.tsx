@@ -24,6 +24,7 @@ export const CenterSection = styled.div`
     gap: 1.5%;
     color: #615e5e;
     height: 41%;
+    cursor: pointer;
   }
 `;
 export const ProductsSection = styled.div`

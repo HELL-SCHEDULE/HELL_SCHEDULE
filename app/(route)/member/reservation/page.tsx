@@ -33,7 +33,7 @@ const Reservation = () => {
       className: '2:1 PT',
       date: '14:00~14:50',
       instructorName: '김하정 강사',
-      state: '예약가능',
+      state: '예약완료',
     },
     {
       className: '2:1 PT',

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface Props {
   type: string;
+  color: string;
 }
 export const ClassCardStyle = styled.div<Props>`
   width: 100%;
@@ -25,7 +26,6 @@ export const ClassCardStyle = styled.div<Props>`
     }
   }
   .class-state button {
-    display: ${(props) => (props.type == 'state' ? 'inline-block' : 'none')};
     position: absolute;
     top: 0;
     right: 0;
@@ -33,7 +33,9 @@ export const ClassCardStyle = styled.div<Props>`
     font-size: 10px;
     padding: 0.7% 1.8%;
     border: 1px solid #464444;
-    color: #464444;
+    border-color: ${(props) => props.color};
+    color: ${(props) => props.color};
+    background: ${(props) => (props.type == 'state' ? '#f4f4f4' : 'white')};
     cursor: pointer;
   }
 

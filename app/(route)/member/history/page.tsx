@@ -21,7 +21,13 @@ const History = () => {
       className: '1:1 PT',
       date: '11:00~11:50',
       instructorName: '김하정 강사',
-      state: '출석완료',
+      state: '예약완료',
+    },
+    {
+      className: '2:1 PT',
+      date: '14:00~14:50',
+      instructorName: '김하정 강사',
+      state: '예약취소',
     },
     {
       className: '2:1 PT',
@@ -33,20 +39,14 @@ const History = () => {
       className: '2:1 PT',
       date: '14:00~14:50',
       instructorName: '김하정 강사',
-      state: '출석완료',
-    },
-    {
-      className: '2:1 PT',
-      date: '14:00~14:50',
-      instructorName: '김하정 강사',
-      state: '출석완료',
+      state: '미출석',
     },
 
     {
       className: '2:1 PT',
       date: '14:00~14:50',
       instructorName: '김하정 강사',
-      state: '예약가능',
+      state: '예약취소',
     },
   ];
 
