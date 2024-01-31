@@ -7,7 +7,6 @@ export const PageWrapper = styled.div`
 
 export const PageHeader = styled.div`
   height: 7%;
-  height: 7%;
   display: flex;
   align-items: center;
   justify-content: flex-start;

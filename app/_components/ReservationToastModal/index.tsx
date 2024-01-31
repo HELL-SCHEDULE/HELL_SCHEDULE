@@ -61,9 +61,11 @@ const WaitToastModal = ({ type, classInfo, onCloseModal }: Props) => {
     (e: React.MouseEvent<HTMLElement>) => {
       const eventTarget = e.target as HTMLElement;
       const queryStr = new URLSearchParams(classInfo).toString();
-
+      // router.push(
+      //   `/member/class-request-complete?type=${eventTarget.innerText}&classInfo=${queryStr}`
+      // );
       router.push(
-        `/member/class-request-complete?type=${eventTarget.innerText}&classInfo=${queryStr}`
+        `/member/class-request-complete?type=${eventTarget.innerText}`
       );
     },
     []
@@ -129,7 +131,7 @@ const WaitToastModal = ({ type, classInfo, onCloseModal }: Props) => {
                 : 2
             }
           >
-            <button>돌아가기</button>
+            <button onClick={onCloseModal}>돌아가기</button>
             {btnTitle === '취소가 완료되었습니다.' ||
             btnTitle === '처리가 완료된 수업입니다.' ? (
               <></>
