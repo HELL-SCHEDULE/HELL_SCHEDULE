@@ -24,6 +24,7 @@ import ModalLayout from '@/app/_layout/ModalLayout';
 import MemberRgMdModal from '@/app/_components/Modal/MemberRgMdModal';
 import MemberDetailModal from '@/app/_components/Modal/MemberDetailModal';
 import Filter from '@/app/_components/Filter';
+import SelectLocker from '@/app/_components/SelectLocker';
 
 const Member = () => {
   const members = [
@@ -85,6 +86,15 @@ const Member = () => {
   const productFilterList = ['수강권 A', '수강권 B', '수강권 C'];
   const instructorFilterList = ['김하정 1', '김하정 2', '김하정 3'];
 
+  // 사물함 선택 모달 open여부
+  const [isOpenSelectLockerModal, setIsOpenSelectLockerModal] = useState(false);
+  const openSelectLockerHandler = useCallback(() => {
+    setIsOpenSelectLockerModal((prev) => !prev);
+  }, []);
+
+  // 선택한 사물함 번호
+  const [selectLocker, setSelectLocker] = useState(0);
+  console.log('선택한 사물함', selectLocker);
   return (
     <WebLayout>
       <NavBar user={'master'} />
@@ -219,6 +229,8 @@ const Member = () => {
             <MemberRgMdModal
               title={'회원 등록'}
               onCloseModal={handleRegisterModal}
+              openSelectLockerHandler={openSelectLockerHandler}
+              selectLocker={selectLocker}
             />
           </ModalLayout>
         )}
@@ -227,6 +239,16 @@ const Member = () => {
             <MemberRgMdModal
               title={'회원 수정'}
               onCloseModal={handleModifyModal}
+              openSelectLockerHandler={openSelectLockerHandler}
+            />
+          </ModalLayout>
+        )}
+        {isOpenSelectLockerModal && (
+          <ModalLayout onCloseModal={openSelectLockerHandler}>
+            <SelectLocker
+              onCloseModal={openSelectLockerHandler}
+              selectLocker={selectLocker}
+              setSelectLocker={setSelectLocker}
             />
           </ModalLayout>
         )}

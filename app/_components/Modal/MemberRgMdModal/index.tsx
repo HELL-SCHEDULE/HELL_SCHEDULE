@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import Image from 'next/image';
 import {
   MemberInfoWrapper,
@@ -11,13 +11,21 @@ import {
   MemberRgMdInfoWrapper,
   ButtonWrapper,
 } from './styles';
+import SelectLocker from '../../SelectLocker';
 
 interface Props {
   title: string;
   onCloseModal: () => void;
+  openSelectLockerHandler: () => void;
+  selectLocker?: number;
 }
 
-const MemberRgModal = ({ title, onCloseModal }: Props) => {
+const MemberRgModal = ({
+  title,
+  onCloseModal,
+  openSelectLockerHandler,
+  selectLocker,
+}: Props) => {
   const stopPropagation = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   }, []);
@@ -127,8 +135,10 @@ const MemberRgModal = ({ title, onCloseModal }: Props) => {
                     <option>수강권 1</option>
                     <option>수강권 2</option>
                   </select>
-                  <button className='button'>락커 등록</button>
-                  <span>23번 지정</span>
+                  <button className='button' onClick={openSelectLockerHandler}>
+                    락커 등록
+                  </button>
+                  <span>{selectLocker}번 지정</span>
                 </div>
               </InputWrapper>
               <InputWrapper height={'8.8%'}>
