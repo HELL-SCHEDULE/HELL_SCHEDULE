@@ -1,9 +1,11 @@
 'use client';
+import Image from 'next/image';
 import FindAccountId from '@/app/_components/FindAccount/FindAcccountId';
 import FindAccountPw from '@/app/_components/FindAccount/FindAccountPw';
 import AccountLayout from '@/app/_layout/AccountLayout';
 import { useCallback, useState } from 'react';
 import { FindAccountContent, FindAccountType } from './styles';
+import { useRouter } from 'next/navigation';
 
 const FindAccount = () => {
   const [findAccountType, setFindAccountType] = useState('아이디 찾기');
@@ -11,6 +13,12 @@ const FindAccount = () => {
   const onClickFindType = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const eventTarget = e.target as HTMLElement;
     setFindAccountType(eventTarget.innerText);
+  }, []);
+
+  // 로그인 페이지로 이동
+  const router = useRouter();
+  const routeToLogin = useCallback(() => {
+    router.push('/login');
   }, []);
 
   return (
@@ -39,6 +47,15 @@ const FindAccount = () => {
         ) : (
           <FindAccountPw />
         )}
+        <span onClick={routeToLogin}>
+          <Image
+            src='/icons/arrow_left.svg'
+            alt='arrow_left'
+            width={20}
+            height={20}
+          />
+          로그인하기
+        </span>
       </FindAccountContent>
     </AccountLayout>
   );

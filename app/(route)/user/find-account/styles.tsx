@@ -37,4 +37,24 @@ export const FindAccountType = styled.div`
 export const FindAccountContent = styled.div`
   padding-top: 8.2%;
   height: 87.8%;
+  position: relative;
+  & > span {
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    font-size: 20px;
+    width: 27%;
+    min-width: 123px;
+    display: flex;
+    align-items: center;
+    & > img {
+      margin-right: 5%;
+    }
+    @media all and (min-width: 1024px) and (max-width: 1920px) {
+      font-size: 16px;
+    }
+    @media all and (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
 `;
