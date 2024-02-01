@@ -14,6 +14,7 @@ export const ButtonStyle = styled.button<Props>`
   border-radius: 8px;
   border: 1px solid #041f86;
   font-size: 22px;
+  cursor: pointer;
 
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     & {

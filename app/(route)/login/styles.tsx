@@ -13,6 +13,7 @@ export const LoginForm = styled.div`
     font-size: 16px;
     color: #767676;
     margin-top: -15px;
+    cursor: pointer;
   }
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     .search-account {
