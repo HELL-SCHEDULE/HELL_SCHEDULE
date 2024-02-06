@@ -5,6 +5,7 @@ import { useCallback } from 'react';
 import Button from '../../_components/Button';
 import useInput from '@/app/hooks/useInput';
 import { useRouter } from 'next/navigation';
+import { loginAPI } from '@/app/api/accout';
 
 const Login = () => {
   const loginStyle = { background: '#041f86', color: 'white', height: '17.3%' };
@@ -15,8 +16,16 @@ const Login = () => {
   const router = useRouter();
 
   // 로그인 액션
-  const onClickLogin = useCallback(() => {
+  const onClickLogin = useCallback(async () => {
     console.log('로그인', id, password);
+    const response = await loginAPI(id, password);
+    console.log(response);
+    // if (response) {
+    //   console.log('로그인 성공');
+    //   //라우트
+    // } else {
+    //   console.log('로그인 실패');
+    // }
   }, [id, password]);
 
   // 회원가입

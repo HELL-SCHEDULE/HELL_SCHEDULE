@@ -79,6 +79,9 @@ export const EmailAuth = styled.div`
     width: 32.4%;
     height: 100% !important;
     margin: 0 !important;
+    border-radius: 8px;
+    border: 1px solid #767676;
+    color: #767676;
   }
 `;
 export const PhoneNumbForm = styled.div`

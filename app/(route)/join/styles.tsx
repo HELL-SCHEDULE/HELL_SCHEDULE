@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const JoinForm = styled.div`
+export const JoinForm = styled.form`
   width: calc(100% - 62%);
   padding: 1.4% 8.7%;
   .form-title {
@@ -11,14 +11,18 @@ export const JoinForm = styled.div`
     font-size: 22px;
     height: 5%;
   }
+  .global-input:nth-of-type(1) {
+    margin-top: 1.1%;
+  }
   .global-input {
     height: 21.2%;
     margin-top: 5.1%;
   }
 
   .error-message {
-    margin-top: 1.1%;
+    // margin-top: 1.1%;
   }
+
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     width: 38%;
     // background: yellow;

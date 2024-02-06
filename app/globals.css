@@ -134,9 +134,20 @@ body::-webkit-scrollbar-track {
   gap: 6px;
 }
 
+.success-message {
+  color: green;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 @media all and (min-width: 1024px) and (max-width: 1920px) {
   .error-message {
     color: red;
+    font-size: 10px !important;
+  }
+  .success-message {
     font-size: 10px !important;
   }
 }
@@ -146,11 +157,17 @@ body::-webkit-scrollbar-track {
     color: red;
     font-size: 10px !important;
   }
+  .success-message {
+    font-size: 10px !important;
+  }
 }
 
 @media all and (max-width: 767px) {
   .error-message {
     color: red;
+    font-size: 10px !important;
+  }
+  .success-message {
     font-size: 10px !important;
   }
 }
@@ -160,7 +177,7 @@ body::-webkit-scrollbar-track {
   width: 100%;
   border-radius: 8px;
   border: 1px solid #767676;
-  padding: 0 15px;
+  padding: 0 8px;
   font-size: 16px;
 }
 
