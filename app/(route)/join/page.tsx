@@ -1,20 +1,16 @@
 'use client';
+import Image from 'next/image';
 import AccountLayout from '@/app/_layout/AccountLayout';
 import Button from '@/app/_components/Button';
 import Instructor from '@/app/_components/JoinUser/Instructor';
 import Master from '@/app/_components/JoinUser/Master';
 import Member from '@/app/_components/JoinUser/Member';
 import { useCallback, useState } from 'react';
-import { BasicForm, ChoiceUser, JoinForm, UserForm } from './styles';
-import {
-  SectionWrapper,
-  SenterImgSection,
-} from '@/app/_layout/AccountLayout/styles';
+import { BasicForm, Description, KaKaoButton } from './styles';
 import useInput from '@/app/hooks/useInput';
-import { idDuplicateCheckAPI } from '@/app/api/accout';
 
 const Join = () => {
-  const style = { background: '#041f86', color: 'white', height: '6.3%' };
+  const style = { background: '#041f86', color: 'white', height: '13.9%' };
 
   // 가입하는 유저의 타입
   const [joinUserType, setJoinUserType] = useState('회원');
@@ -63,48 +59,43 @@ const Join = () => {
   }, []);
 
   return (
-    <SectionWrapper>
-      <SenterImgSection>
-        <div>backimg</div>
-      </SenterImgSection>
-      <JoinForm onSubmit={onSubmit}>
-        <div className='form-title'>회원가입</div>
-        <BasicForm>
-          <div className='id-check'>
-            <input
-              type='text'
-              className='global-input id'
-              placeholder='아이디'
-              value={id}
-              onChange={onChangeId}
-            />
-            <button onClick={duplicateCheck}>중복 확인</button>
-          </div>
-          {duplicateId ? (
-            <p className='error-message'>이미 존재하는 이메일입니다.</p>
-          ) : (
-            <p className='success-message'>사용 가능한 이메일입니다.</p>
-          )}
+    <AccountLayout title={'회원가입'}>
+      <BasicForm>
+        <div className='id-check'>
+          <input
+            type='text'
+            className='global-input id'
+            placeholder='아이디'
+            value={id}
+            onChange={onChangeId}
+          />
+          <button onClick={duplicateCheck}>중복 확인</button>
+        </div>
+        {duplicateId ? (
+          <p className='error-message'>이미 존재하는 이메일입니다.</p>
+        ) : (
+          <p className='success-message'>사용 가능한 이메일입니다.</p>
+        )}
 
-          <input
-            type='text'
-            className='global-input'
-            placeholder='비밀번호'
-            value={password}
-            onChange={onChangePassword}
-          />
-          <input
-            type='text'
-            className='global-input'
-            placeholder='비밀번호 확인'
-            value={passwordcheck}
-            onChange={onChangePasswordCheck}
-          />
-          {passwordError && (
-            <p className='error-message'>비밀번호가 일치하지 않습니다.</p>
-          )}
-        </BasicForm>
-        <ChoiceUser>
+        <input
+          type='text'
+          className='global-input password'
+          placeholder='비밀번호'
+          value={password}
+          onChange={onChangePassword}
+        />
+        <input
+          type='text'
+          className='global-input password-check'
+          placeholder='비밀번호 확인'
+          value={passwordcheck}
+          onChange={onChangePasswordCheck}
+        />
+        {passwordError && (
+          <p className='error-message'>비밀번호가 일치하지 않습니다.</p>
+        )}
+      </BasicForm>
+      {/* <ChoiceUser>
           <div
             className={`user-type ` + (joinUserType === '회원' ? 'select' : '')}
             onClick={onClickJoinType}
@@ -134,10 +125,21 @@ const Join = () => {
           ) : (
             <Instructor />
           )}
-        </UserForm>
-        <Button title='회원가입' style={style} onClickHandler={onSubmit} />
-      </JoinForm>
-    </SectionWrapper>
+        </UserForm> */}
+      <Button title='회원가입' style={style} onClickHandler={onSubmit} />
+      <KaKaoButton>
+        <Image
+          src='/image/kakaoLogo.png'
+          alt='kakaoLogo'
+          width={30}
+          height={25}
+        />
+        카카오 회원가입
+      </KaKaoButton>
+      <Description>
+        이미 회원이신가요?<span className='strong'>로그인 하기</span>
+      </Description>
+    </AccountLayout>
   );
 };
 
