@@ -20,7 +20,7 @@ export const FormTitleSection = styled.section`
   // background: orange;
   .form-section-wrapper {
     height: 100vh;
-    padding: 23.5% 18.65%;
+    padding: 15.5% 18.65%;
     .form-title-logo {
       height: 22.6%;
       text-align: center;
@@ -32,14 +32,13 @@ export const FormTitleSection = styled.section`
     }
     .form-title {
       text-align: center;
-      margin-top: 7.6%;
-      margin-bottom: 10.6%;
+      margin: 7.6% 0;
       font-weight: 500;
       font-size: 22px;
       height: 5%;
     }
     .form-content {
-      height: calc(100% - 22.6% - 5% - 11.9%);
+      height: calc(100% - 22.6% - 13%);
     }
   }
 
@@ -47,7 +46,7 @@ export const FormTitleSection = styled.section`
     width: 38%;
     // background: yellow;
     .form-section-wrapper {
-      padding: 23.5% 18.65%;
+      padding: 15.5% 18.65%;
       .form-title-logo {
         height: 22.6%;
       }
@@ -62,7 +61,7 @@ export const FormTitleSection = styled.section`
     width: 100vw;
     // background: blue;
     .form-section-wrapper {
-      padding: 23.5% 12.4%;
+      padding: 15.5% 12.4%;
       .form-title-logo {
         height: 18.2%;
       }
@@ -70,7 +69,7 @@ export const FormTitleSection = styled.section`
         font-size: 20px;
       }
       .form-content {
-        height: calc(100% - 18.2% - 5% - 11.9%);
+        height: calc(100% - 18.2% - 13%);
       }
     }
   }
@@ -87,7 +86,7 @@ export const FormTitleSection = styled.section`
         font-size: 16px;
       }
       .form-content {
-        height: calc(100% - 22.2% - 5% - 11.9%);
+        height: calc(100% - 22.2% - 13%);
       }
     }
   }

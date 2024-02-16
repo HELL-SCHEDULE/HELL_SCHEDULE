@@ -8,7 +8,7 @@ export const FindAccountPwFrom = styled.div`
     margin-bottom: 3.5%;
   }
   .global-input {
-    height: 21.8%;
+    height: 20.8%;
     margin-bottom: 8%;
   }
 

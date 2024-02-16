@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import AccountLayout from '@/app/_layout/AccountLayout';
 import { LoginForm } from './styles';
 import { useCallback } from 'react';
@@ -68,6 +69,15 @@ const Login = () => {
         <span className='search-account' onClick={routeToFindAccout}>
           아이디 / 비밀번호 찾기
         </span>
+        <button className='kakao-login'>
+          <Image
+            src='/image/kakaoLogo.png'
+            alt='kakaoLogo'
+            width={30}
+            height={25}
+          />
+          카카오 간편 로그인
+        </button>
       </LoginForm>
     </AccountLayout>
   );

@@ -5,7 +5,7 @@ import useInput from '@/app/hooks/useInput';
 import { findAccountIdAPI } from '@/app/api/accout';
 
 const FindAccountId = () => {
-  const style = { background: '#041f86', color: 'white', height: '21.8%' };
+  const style = { background: '#041f86', color: 'white', height: '20.8%' };
 
   const [email, onChangeEmail, setEmail] = useInput('');
 

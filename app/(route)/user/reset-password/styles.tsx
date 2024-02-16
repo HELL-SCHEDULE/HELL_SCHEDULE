@@ -13,7 +13,7 @@ export const ResetPwForm = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 17.3%;
+    height: 13.9%;
     margin-bottom: 7.5%;
 
     &:nth-of-type(2) {

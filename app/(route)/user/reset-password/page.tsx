@@ -8,7 +8,7 @@ import useInput from '@/app/hooks/useInput';
 import { useRouter } from 'next/navigation';
 
 const ResetPw = () => {
-  const style = { background: '#041f86', color: 'white', height: '17.8%' };
+  const style = { background: '#041f86', color: 'white', height: '13.9%' };
 
   const [password, onChangePassword, setPassword] = useInput('');
   const [passwordcheck, setChangePasswordCheck] = useState('');
