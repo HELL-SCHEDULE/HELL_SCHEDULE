@@ -70,7 +70,7 @@ const Member = () => {
 
   return (
     <WebLayout>
-      <NavBar user={'instuctor'} />
+      <NavBar user={'instructor'} />
       <PageContentWrpper>
         <Title title={`회원 관리`} />
         <ContentHeader>

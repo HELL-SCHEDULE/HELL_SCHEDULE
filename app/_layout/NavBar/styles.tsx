@@ -4,6 +4,7 @@ export const NavBarWapper = styled.div`
   width: 100%;
   height: 7.42%;
   padding: 0 2.1%;
+  padding-right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,6 +30,20 @@ export const NavBarWapper = styled.div`
     font-weight: 600;
   }
 
+  .nav-bar-my-info {
+    display: flex;
+    align-items: end;
+    gap: 4%;
+    width: 12%;
+
+    & > image {
+      margin-left: 5%;
+    }
+  }
+
+  .instructor {
+    min-width: 272px;
+  }
   @media all and (min-width: 1024px) and (max-width: 1919px) {
     font-size: 16px;
   }

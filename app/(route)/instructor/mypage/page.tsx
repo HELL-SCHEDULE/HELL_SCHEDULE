@@ -35,7 +35,7 @@ const Mypage = () => {
     },
   ];
   // 프로필 수정 누르면 input활성화
-  // 관리, 요청에 따른 버튼
+  // 관리, 요청에 따른
   return (
     <WebLayout>
       <NavBar user={'instructor'} />

@@ -15,6 +15,9 @@ const InstructorNav = () => {
         >
           <Link href={'/instructor/schedule/check'}>일정</Link>
         </li>
+        <li className={pathname.includes('/instructor/chat') ? 'active' : ''}>
+          <Link href={'/instructor/chat/history'}>채팅</Link>
+        </li>
         <li className={pathname == '/instructor/mypage' ? 'active' : ''}>
           <Link href={'/instructor/mypage'}>마이페이지</Link>
         </li>

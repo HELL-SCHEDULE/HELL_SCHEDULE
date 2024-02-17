@@ -2,12 +2,11 @@
 import Image from 'next/image';
 import AccountLayout from '@/app/_layout/AccountLayout';
 import Button from '@/app/_components/Button';
-import Instructor from '@/app/_components/JoinUser/Instructor';
-import Master from '@/app/_components/JoinUser/Master';
-import Member from '@/app/_components/JoinUser/Member';
 import { useCallback, useState } from 'react';
 import { BasicForm, Description, KaKaoButton } from './styles';
 import useInput from '@/app/hooks/useInput';
+import ModalLayout from '@/app/_layout/ModalLayout';
+import ChoiceUserTypeModal from '@/app/_components/Modal/ChoiceUserTypeModal';
 
 const Join = () => {
   const style = { background: '#041f86', color: 'white', height: '13.9%' };
@@ -53,9 +52,12 @@ const Join = () => {
   const [instructorJoinForm, setInstructorJoinForm] = useState({});
   const [masterJoinForm, setMasterJoinForm] = useState({});
 
-  // 회원가입
-  const onSubmit = useCallback(() => {
+  const [isOpenUserTypeMoadl, setIsOpenUserTypeModal] = useState(false);
+  // 회원가입 클릭 시, 유저 타입 선택 모달 오픈
+  // 카카오 회원가입 시, 과정 끝내면 모달 오픈(찾아봐야함!)
+  const handleUserTypeModal = useCallback(() => {
     console.log('회원가입');
+    setIsOpenUserTypeModal((prev) => !prev);
   }, []);
 
   return (
@@ -95,38 +97,11 @@ const Join = () => {
           <p className='error-message'>비밀번호가 일치하지 않습니다.</p>
         )}
       </BasicForm>
-      {/* <ChoiceUser>
-          <div
-            className={`user-type ` + (joinUserType === '회원' ? 'select' : '')}
-            onClick={onClickJoinType}
-          >
-            회원
-          </div>
-          <div
-            className={`user-type ` + (joinUserType === '강사' ? 'select' : '')}
-            onClick={onClickJoinType}
-          >
-            강사
-          </div>
-          <div
-            className={
-              `user-type ` + (joinUserType === '대표자' ? 'select' : '')
-            }
-            onClick={onClickJoinType}
-          >
-            대표자
-          </div>
-        </ChoiceUser>
-        <UserForm>
-          {joinUserType === '회원' ? (
-            <Member />
-          ) : joinUserType === '대표자' ? (
-            <Master />
-          ) : (
-            <Instructor />
-          )}
-        </UserForm> */}
-      <Button title='회원가입' style={style} onClickHandler={onSubmit} />
+      <Button
+        title='회원가입'
+        style={style}
+        onClickHandler={handleUserTypeModal}
+      />
       <KaKaoButton>
         <Image
           src='/image/kakaoLogo.png'
@@ -139,6 +114,11 @@ const Join = () => {
       <Description>
         이미 회원이신가요?<span className='strong'>로그인 하기</span>
       </Description>
+      {isOpenUserTypeMoadl && (
+        <ModalLayout onCloseModal={handleUserTypeModal}>
+          <ChoiceUserTypeModal onCloseModal={handleUserTypeModal} />
+        </ModalLayout>
+      )}
     </AccountLayout>
   );
 };
