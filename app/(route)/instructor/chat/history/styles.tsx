@@ -81,7 +81,7 @@ export const RightSection = styled.div`
 `;
 
 export const ChatProfile = styled.div`
-  height: 12%;
+  height: 10%;
   display: flex;
   padding: 0.5% 2%;
   gap: 2%;
@@ -89,8 +89,8 @@ export const ChatProfile = styled.div`
 
   border-bottom: 1px solid #d4d4d4;
   .profile {
-    width: 6%;
-    max-width: 45px;
+    width: 5%;
+    // max-width: 45px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background: #d9d9d9;
@@ -108,15 +108,45 @@ export const ChatProfile = styled.div`
   }
 `;
 export const ChatSection = styled.div`
-  height: 71%;
-  max-height: 545px;
+  height: 76%;
   overflow: auto;
 `;
+
+export const Section = styled.div`
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+`;
+
+export const StickyHeader = styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  position: sticky;
+  top: 14px;
+  & button {
+    font-weight: bold;
+    font-size: 13px;
+    height: 28px;
+    line-height: 27px;
+    padding: 0 16px;
+    z-index: 2;
+    --saf-0: rgba(var(--sk_foreground_low, 29, 28, 29), 0.13);
+    border-radius: 24px;
+    position: relative;
+    top: -13px;
+    background: white;
+    border: none;
+    outline: none;
+    color: #767676;
+  }
+`;
+
 export const ChatInputSection = styled.div`
-  height: 17%;
+  height: 14%;
   max-height: 120px;
   border-top: 1px solid #d4d4d4;
-  padding: 2.65% 3%;
+  padding: 18px;
   display: flex;
   justify-content: space-between;
   gap: 3%;

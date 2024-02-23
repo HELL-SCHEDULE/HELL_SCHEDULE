@@ -18,11 +18,13 @@ import {
   ChatProfile,
   ChatSection,
   ChatInputSection,
+  Section,
+  StickyHeader,
 } from './styles';
 import ChatMemberList from '@/app/_components/ChatMemberList';
 
 const History = () => {
-  const members = ['회원 A', '회원 B', '회원 C'];
+  const members = ['회원 A', '회원 B', '회원 C']; // 채팅한 기록이 있는 회원
   const [isOpenSearchSection, setIsOpenSearchSection] = useState(false);
 
   const [selectMember, setSelectMember] = useState('');
@@ -31,6 +33,7 @@ const History = () => {
     setIsOpenSearchSection((prev) => !prev);
   }, []);
 
+  const date = '2024-02-24';
   return (
     <WebLayout>
       <NavBar user={'instructor'} />
@@ -120,7 +123,28 @@ const History = () => {
               </div>
               <span>{selectMember}</span>
             </ChatProfile>
-            <ChatSection></ChatSection>
+            <ChatSection>
+              <Section>
+                <StickyHeader className={`section-${date}`} key={date}>
+                  <button>{date}</button>
+                </StickyHeader>
+                {/* {chats.map((chat) => (
+                <Chat key={chat.id} data={chat} />
+              ))} */}
+              </Section>
+              {/* {Object.entries(chatSections).map(([date, chats]) => {
+          return (
+            <Section>
+              <StickyHeader className={`section-${date}`} key={date}>
+                <button>{date}</button>
+              </StickyHeader>
+              {chats.map((chat) => (
+                <Chat key={chat.id} data={chat} />
+              ))}
+            </Section>
+          );
+        })} */}
+            </ChatSection>
             <ChatInputSection>
               <input type='text' />
               <button>
