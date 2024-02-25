@@ -115,6 +115,7 @@ export const ChatSection = styled.div`
 export const Section = styled.div`
   margin-top: 20px;
   border-top: 1px solid #eee;
+  padding: 0 2%;
 `;
 
 export const StickyHeader = styled.div`

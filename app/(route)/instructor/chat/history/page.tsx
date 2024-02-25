@@ -22,6 +22,7 @@ import {
   StickyHeader,
 } from './styles';
 import ChatMemberList from '@/app/_components/ChatMemberList';
+import Chat from '@/app/_components/Chat';
 
 const History = () => {
   const members = ['회원 A', '회원 B', '회원 C']; // 채팅한 기록이 있는 회원
@@ -34,6 +35,27 @@ const History = () => {
   }, []);
 
   const date = '2024-02-24';
+  const chats = [
+    {
+      id: 1,
+      userId: 1,
+      content: '나',
+      time: '오후 1:31',
+    },
+    {
+      id: 2,
+      userId: 2,
+      content: '상대방',
+      time: '오후 1:31',
+    },
+    {
+      id: 3,
+      userId: 2,
+      content: '상대방',
+      time: '오후 1:31',
+    },
+  ];
+
   return (
     <WebLayout>
       <NavBar user={'instructor'} />
@@ -128,9 +150,10 @@ const History = () => {
                 <StickyHeader className={`section-${date}`} key={date}>
                   <button>{date}</button>
                 </StickyHeader>
-                {/* {chats.map((chat) => (
-                <Chat key={chat.id} data={chat} />
-              ))} */}
+                {/* Chat 컴포넌트에서 id(유저별 id)에 따라 위치, 색상 다르게 설정해주기! */}
+                {chats.map((chat) => (
+                  <Chat key={chat.id} chat={chat} />
+                ))}
               </Section>
               {/* {Object.entries(chatSections).map(([date, chats]) => {
           return (
