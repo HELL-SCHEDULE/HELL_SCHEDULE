@@ -9,6 +9,7 @@ export const ProductSelectCardStyle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8%;
+  cursor: pointer;
 `;
 
 export const ProductImgWrapper = styled.div`

@@ -71,6 +71,19 @@ const MobileContentLayout = ({ title, children }: Props) => {
               <div>마이페이지</div>
             </Link>
           </li>
+          <li className={pathname == '/member/chat' ? 'active' : ''}>
+            <Link href={'/member/chat'}>
+              <Image
+                src='/image/calendar.png'
+                alt='calendar'
+                width={0}
+                height={0}
+                sizes='100vw'
+                style={{ width: '42%', height: 'auto' }}
+              />
+              <div>채팅</div>
+            </Link>
+          </li>
         </ul>
       </NavBar>
     </MobileLayout>

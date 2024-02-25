@@ -24,10 +24,10 @@ export const NavBar = styled.div`
     height: 100%;
     list-style: none;
     display: flex;
-    gap: 5.5%;
+    gap: 3.5%;
   }
   ul li {
-    width: calc(100% / 4 - 5%);
+    width: calc(100% / 5);
     height: 100%;
   }
   ul li a {

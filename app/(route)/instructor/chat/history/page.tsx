@@ -119,7 +119,6 @@ const History = () => {
                 />
               </SearchSection>
             )}
-
             <ListSection height={`${isOpenSearchSection ? '80%' : '90%'}`}>
               {members.map((member, i) => (
                 <ChatMemberList

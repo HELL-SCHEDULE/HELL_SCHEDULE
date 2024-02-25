@@ -16,13 +16,13 @@ export const ChatWrapper = styled.div<Props>`
     border-radius: 8px;
     background: ${(props) =>
       props.type === 'true' ? 'rgba(137, 194, 217, 0.27)' : '#F4F4F4'};
-    padding: 1% 1.5%;
+    padding: 5px 8px;
     order: ${(props) => (props.type === 'true' ? '2' : '1')};
   }
 
   .chat-time {
     color: #767676;
-    font-size: 16px;
+    font-size: 12px;
     width: max-content;
     order: ${(props) => (props.type === 'true' ? '1' : '2')};
     @media all and (min-width: 1024px) and (max-width: 1919px) {

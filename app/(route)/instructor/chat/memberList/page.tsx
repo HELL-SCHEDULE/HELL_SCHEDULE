@@ -18,8 +18,11 @@ import {
   ChatProfile,
   ChatSection,
   ChatInputSection,
+  Section,
+  StickyHeader,
 } from './styles';
 import ChatMemberList from '@/app/_components/ChatMemberList';
+import Chat from '@/app/_components/Chat';
 
 const MemberList = () => {
   const members = ['회원 A', '회원 B', '회원 C']; // 전체 회원
@@ -30,6 +33,28 @@ const MemberList = () => {
   const handleSearchSection = useCallback(() => {
     setIsOpenSearchSection((prev) => !prev);
   }, []);
+
+  const date = '2024-02-24';
+  const chats = [
+    {
+      id: 1,
+      userId: 1,
+      content: '나',
+      time: '오후 1:31',
+    },
+    {
+      id: 2,
+      userId: 2,
+      content: '상대방',
+      time: '오후 1:31',
+    },
+    {
+      id: 3,
+      userId: 2,
+      content: '상대방',
+      time: '오후 1:31',
+    },
+  ];
 
   return (
     <WebLayout>
@@ -120,7 +145,18 @@ const MemberList = () => {
               </div>
               <span>{selectMember}</span>
             </ChatProfile>
-            <ChatSection></ChatSection>
+            <ChatSection>
+              {' '}
+              <Section>
+                <StickyHeader className={`section-${date}`} key={date}>
+                  <button>{date}</button>
+                </StickyHeader>
+                {/* Chat 컴포넌트에서 id(유저별 id)에 따라 위치, 색상 다르게 설정해주기! */}
+                {chats.map((chat) => (
+                  <Chat key={chat.id} chat={chat} />
+                ))}
+              </Section>
+            </ChatSection>
             <ChatInputSection>
               <input type='text' />
               <button>
