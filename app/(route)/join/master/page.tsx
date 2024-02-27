@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   MasterJoinWrapper,
   SenterImgSection,
@@ -10,15 +10,65 @@ import {
   MemberClothesForm,
   PhoneNumbForm,
   RockerNumbForm,
+  StartDate,
 } from './styles';
 import Button from '@/app/_components/Button';
+import { useRouter } from 'next/navigation';
+import useInput from '@/app/hooks/useInput';
+import axios from 'axios';
 
 const Master = () => {
   const style = { background: '#041f86', color: 'white', height: '9%' };
 
+  const [name, onChangeName] = useInput('');
+  const [centerNumber, onChangeCenterNumber] = useInput('');
+  const [startDate, onChangeStartDate] = useInput('');
+  const [verificationError, setVerificationError] = useState(false);
+
+  const router = useRouter();
+
   const onSubmit = useCallback(() => {
-    console.log('완료');
+    router.push('/login');
   }, []);
+
+  const VerificateCenterNumber = useCallback(() => {
+    if (name && centerNumber && startDate) {
+      axios
+        .post(
+          `http://api.odcloud.kr/api/nts-businessman/v1/validate?serviceKey=${process.env.NEXT_PUBLIC__SERVICE_KEY}`,
+          {
+            businesses: [
+              {
+                b_no: centerNumber,
+                start_dt: startDate.replaceAll('-', ''),
+                p_nm: name,
+                p_nm2: '',
+                b_nm: '',
+                corp_no: '',
+                b_sector: '',
+                b_type: '',
+                b_adr: '',
+              },
+            ],
+          }
+        )
+        .then((response) => {
+          // 인증 성공
+          if (response.data.data[0].valid === '01') {
+            alert('사업자 번호 인증을 완료했습니다.');
+            setVerificationError(false);
+          } else {
+            setVerificationError(true);
+          }
+        })
+        .catch((error) => {
+          // 에러 처리
+          console.error(error);
+        });
+    } else {
+      alert('이름, 개업 일자, 사업자 번호를 입력해주세요!');
+    }
+  }, [name, startDate, centerNumber]);
 
   return (
     <MasterJoinWrapper>
@@ -27,7 +77,12 @@ const Master = () => {
       </SenterImgSection>
       <MasterFormSection>
         <p className='title'>정보를 입력해주세요.</p>
-        <input type='text' className='global-input' placeholder='대표자 이름' />
+        <input
+          type='text'
+          className='global-input'
+          placeholder='대표자 이름'
+          onChange={onChangeName}
+        />
         <EmailAuth>
           <div>
             <input type='text' className='global-input email' />
@@ -57,18 +112,32 @@ const Master = () => {
           />
           <button className='btn'>검색</button>
         </AddressSearch>
+        <StartDate>
+          <p>개업 일자</p>
+          <input
+            type='date'
+            className='global-input date'
+            placeholder='개업 일자'
+            onChange={onChangeStartDate}
+          />
+        </StartDate>
         <BusinessNumbAuth>
           <div>
             <input
               type='text'
               className='global-input business'
               placeholder='사업자 번호'
+              onChange={onChangeCenterNumber}
             />
-            <button className='btn'>확인</button>
+            <button className='btn' onClick={VerificateCenterNumber}>
+              확인
+            </button>
           </div>
-          <p className='error-message'>
-            대표자와 사업자 번호를 확인할 수 없습니다.
-          </p>
+          {verificationError && (
+            <p className='error-message'>
+              사업자등록정보 진위확인을 실패하였습니다.
+            </p>
+          )}
         </BusinessNumbAuth>
         <RockerNumbForm>
           <p>락커 총 횟수</p>

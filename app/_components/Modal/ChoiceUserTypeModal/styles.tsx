@@ -28,6 +28,7 @@ export const ChoiceUserTypeModalContent = styled.div`
       border: 1px solid #878787;
       color: #878787;
       background: #fff;
+      cursor: pointer;
     }
     .select {
       border: 1px solid #041f86;
@@ -41,5 +42,6 @@ export const ChoiceUserTypeModalContent = styled.div`
     border-radius: 8px;
     border: 1px solid #041f86;
     color: #fff;
+    cursor: pointer;
   }
 `;

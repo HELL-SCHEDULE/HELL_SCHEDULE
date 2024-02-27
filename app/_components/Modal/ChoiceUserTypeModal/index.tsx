@@ -5,6 +5,7 @@ import {
   ChoiceUserTypeModalStyle,
   ChoiceUserTypeModalContent,
 } from './styles';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   onCloseModal: () => void;
@@ -24,10 +25,17 @@ const ChoiceUserTypeModal = ({ onCloseModal }: Props) => {
     []
   );
 
+  const router = useRouter();
   const onClickComplete = useCallback(() => {
     // 유저 타입에 따른 회원가입페이지로 이동
+    console.log(userType);
+    if (userType === '회원' || userType === '강사') {
+      router.push('/join/basic');
+    } else if (userType === '대표자') {
+      router.push('/join/master');
+    }
     onCloseModal();
-  }, []);
+  }, [userType]);
 
   return (
     <ChoiceUserTypeModalStyle onClick={stopPropagation}>

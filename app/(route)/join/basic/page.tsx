@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   EmailAuth,
   MasterFormSection1,
@@ -8,6 +8,7 @@ import {
 } from './styles';
 import useInput from '@/app/hooks/useInput';
 import AccountLayout from '@/app/_layout/AccountLayout';
+import { useRouter } from 'next/navigation';
 
 const Basic = () => {
   const [name, onChangeName] = useInput('');
@@ -18,6 +19,12 @@ const Basic = () => {
   const [phone1, setPhone1] = useState('');
   const [phone2, onChangePhone2] = useInput('');
   const [phone3, onChangePhone3] = useInput('');
+
+  const router = useRouter();
+
+  const onSubmit = useCallback(() => {
+    router.push('/login');
+  }, []);
 
   return (
     <AccountLayout title={'정보를 입력해주세요.'}>
@@ -77,7 +84,7 @@ const Basic = () => {
           />
         </PhoneNumbForm>
       </MasterFormSection1>
-      <Buttton>완료</Buttton>
+      <Buttton onClick={onSubmit}>완료</Buttton>
     </AccountLayout>
   );
 };

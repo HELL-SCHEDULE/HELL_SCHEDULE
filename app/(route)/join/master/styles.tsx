@@ -42,6 +42,7 @@ export const MasterFormSection = styled.section`
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
+    cursor:pointer;
   }
   .next-btn {
     border: none;
@@ -144,6 +145,21 @@ export const AddressSearch = styled.div`
     height: 100%;
   }
 `;
+
+export const StartDate = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.9%;
+  margin-bottom: 4.5%;
+
+  .date {
+    width: 65% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+`;
+
 export const BusinessNumbAuth = styled.div`
   height: 8.2%;
   margin-bottom: 1.1%;
