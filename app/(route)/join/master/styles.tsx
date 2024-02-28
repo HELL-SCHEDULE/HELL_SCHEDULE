@@ -1,3 +1,4 @@
+import { ButtonStyle } from '@/app/_components/Button/styles';
 import styled from 'styled-components';
 
 export const MasterJoinWrapper = styled.div`
@@ -17,20 +18,21 @@ export const SenterImgSection = styled.section`
 `;
 
 export const MasterFormSection = styled.section`
-  height: 100%;
   position: relative;
-  width: calc(100% - 62%);
-  padding: 5.95% 7.15%;
+  width: calc(100% - 62% - 14%);
+  margin: 3% auto;
 
-  .title{
+  .title {
     text-align: center;
-    font-size: 24px;
-    margin-bottom: 16%;
-}
+    font-size: 22px;
+    margin-bottom: 11%;
+    @media (min-width: 1024px) and (max-width: 1920px) {
+      font-size: 20px;
+    }
   }
   .global-input {
     width: 100%;
-    height: 5.9% !important;
+    height: 5.2% !important;
     margin-top: 0 !important;
     margin-bottom: 4.5% !important;
   }
@@ -42,7 +44,7 @@ export const MasterFormSection = styled.section`
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    cursor:pointer;
+    cursor: pointer;
   }
   .next-btn {
     border: none;
@@ -55,6 +57,7 @@ export const MasterFormSection = styled.section`
     bottom: 0;
     cursor: pointer;
   }
+
   @media all and (min-width: 1024px) and (max-width: 1920px) {
     .btn {
       font-size: 14px !important;
@@ -65,6 +68,11 @@ export const MasterFormSection = styled.section`
   }
 
   @media all and (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+    margin: 7.5% 12.4%;
+    .title {
+      font-size: 16px;
+    }
     .btn {
       font-size: 16px !important;
     }
@@ -74,8 +82,13 @@ export const MasterFormSection = styled.section`
   }
 
   @media all and (max-width: 767px) {
+    width: 100%;
+    margin: 13.5% 12.4%;
+    .title {
+      font-size: 16px;
+    }
     & > .global-input {
-      padding: 2%;
+      // height: 7.2% !important;
     }
     .btn {
       font-size: 14px !important;
@@ -86,22 +99,21 @@ export const MasterFormSection = styled.section`
   }
 `;
 export const EmailAuth = styled.div`
-  height: 8.2%;
-  margin-bottom: 1.1%;
-  & > div {
-    height: 72.3%;
-  }
-  & > div > span {
+  height: 5.2%;
+  margin-bottom: 4.5%;
+  display: flex;
+
+  & > span {
     display: inline-block;
     text-align: center;
     width: 11%;
   }
-  & > div > button {
+  & > button {
     width: calc(100% - 64.8% - 11% - 5%);
     height: 100%;
     margin-left: 5%;
   }
-  & > div > .email {
+  & > .email {
     width: 32.4%;
     height: 100% !important;
     margin: 0 !important;
@@ -109,13 +121,30 @@ export const EmailAuth = styled.div`
     border: 1px solid #767676;
     color: #767676;
   }
-  .error-message,
-  .success-message {
-    height: 35%;
+`;
+
+export const EmailNumberAuth = styled.div`
+  height: 5.2%;
+  margin-bottom: 4.5%;
+  display: flex;
+  position: relative;
+  & > button {
+    width: calc(100% - 64.8% - 11% - 5%);
+    height: 100%;
+    margin-left: 5%;
+  }
+
+  & > .email-number {
+    height: 100% !important;
+    width: 77.2% !important;
+  }
+  .error-message {
+    position: absolute;
+    bottom: -31%;
   }
 `;
 export const PhoneNumbForm = styled.div`
-  height: 5.9%;
+  height: 5.2%;
   margin-bottom: 4.5%;
   & > span {
     display: inline-block;
@@ -129,7 +158,7 @@ export const PhoneNumbForm = styled.div`
   }
 `;
 export const AddressSearch = styled.div`
-  height: 5.9%;
+  height: 5.2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -150,7 +179,7 @@ export const StartDate = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5.9%;
+  height: 5.2%;
   margin-bottom: 4.5%;
 
   .date {
@@ -158,24 +187,25 @@ export const StartDate = styled.div`
     height: 100% !important;
     margin: 0 !important;
   }
+  @media (max-width: 767px) {
+    & > p {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const BusinessNumbAuth = styled.div`
-  height: 8.2%;
-  margin-bottom: 1.1%;
-  & > div {
-    height: 72.3%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  height: 5.2%;
+  margin-bottom: 4.5%;
+  display: flex;
+  position: relative;
 
-  & > div > .business {
+  & > .business {
     width: 77.2%;
     height: 100% !important;
     margin: 0 !important;
   }
-  & > div > button {
+  & > button {
     width: 19%;
     height: 100%;
   }
@@ -227,7 +257,7 @@ export const RockerNumbForm = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5.9%;
+  height: 5.2%;
   margin-bottom: 4.5%;
 
   & > div {
@@ -242,10 +272,16 @@ export const RockerNumbForm = styled.div`
     height: 100% !important;
     margin: 0 !important;
   }
+  @media (max-width: 767px) {
+    & > p,
+    span {
+      font-size: 14px;
+    }
+  }
 `;
 export const MemberClothesForm = styled.div`
-  margin-bottom: 17.5%;
-  height: 5.9%;
+  margin-bottom: 10.5%;
+  height: 5.2%;
   .clothes-check-warpper {
     display: flex;
     justify-content: space-between;
@@ -269,5 +305,44 @@ export const MemberClothesForm = styled.div`
   }
   .error-message {
     height: 35%;
+  }
+  @media (max-width: 767px) {
+    .clothes-check-warpper > p,
+    label {
+      font-size: 14px;
+    }
+  }
+`;
+
+export const ButtonSection = styled.button`
+  background: #041f86;
+  color: white;
+  height: 6.7%;
+  width: 100%;
+  display: inline-block;
+  border-radius: 8px;
+  border: 1px solid #041f86;
+  font-size: 22px;
+  cursor: pointer;
+  // position: absolute;
+  // bottom: 0;
+
+  @media all and (min-width: 1024px) and (max-width: 1920px) {
+    & {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    & {
+      font-size: 20px;
+    }
+  }
+
+  @media all and (max-width: 767px) {
+    & {
+      font-size: 16px;
+      margin-top: 15%;
+    }
   }
 `;
