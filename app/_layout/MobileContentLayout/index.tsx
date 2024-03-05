@@ -58,19 +58,6 @@ const MobileContentLayout = ({ title, children }: Props) => {
               <div>이용 내역</div>
             </Link>
           </li>
-          <li className={pathname == '/member/mypage' ? 'active' : ''}>
-            <Link href={'/member/mypage'}>
-              <Image
-                src='/image/calendar.png'
-                alt='calendar'
-                width={0}
-                height={0}
-                sizes='100vw'
-                style={{ width: '42%', height: 'auto' }}
-              />
-              <div>마이페이지</div>
-            </Link>
-          </li>
           <li className={pathname == '/member/chat' ? 'active' : ''}>
             <Link href={'/member/chat'}>
               <Image
@@ -82,6 +69,19 @@ const MobileContentLayout = ({ title, children }: Props) => {
                 style={{ width: '42%', height: 'auto' }}
               />
               <div>채팅</div>
+            </Link>
+          </li>
+          <li className={pathname == '/member/mypage' ? 'active' : ''}>
+            <Link href={'/member/mypage'}>
+              <Image
+                src='/image/calendar.png'
+                alt='calendar'
+                width={0}
+                height={0}
+                sizes='100vw'
+                style={{ width: '42%', height: 'auto' }}
+              />
+              <div>마이페이지</div>
             </Link>
           </li>
         </ul>

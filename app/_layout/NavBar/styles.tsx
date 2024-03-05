@@ -35,7 +35,7 @@ export const NavBarWapper = styled.div`
     align-items: end;
     gap: 4%;
     width: 12%;
-
+    min-width: 185px;
     & > image {
       margin-left: 5%;
     }

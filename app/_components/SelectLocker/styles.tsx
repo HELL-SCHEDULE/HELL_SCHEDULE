@@ -27,11 +27,24 @@ export const SelectLockerContent = styled.div<Props>`
   grid-template-columns: repeat(auto-fill, minmax(12%, auto));
   grid-template-rows: ${(props) =>
     props.count
-      ? `repeat(${Math.floor(props.count / 7) + 1}, minmax(13%, auto))`
+      ? `repeat(${Math.floor(props.count / 7) + 1}, minmax(16%, auto))`
       : `repeat(17, minmax(13%, auto))`};
   row-gap: 10px;
   column-gap: 10px;
+  &::-webkit-scrollbar {
+    width: 8px; /* 스크롤바의 너비 */
+  }
 
+  &::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #c4c4c4; /* 스크롤바의 색상 */
+
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #e5e5e5; /*스크롤바 뒷 배경 색상*/
+  }
   .locker {
     background: #aaa;
     color: white;

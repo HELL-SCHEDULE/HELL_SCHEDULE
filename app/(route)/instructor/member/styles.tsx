@@ -8,6 +8,7 @@ export const FilterSection = styled.div`
   gap: 6%;
   position: absolute;
   left: 0;
+
   .filter-date {
     width: 34.2%;
     height: 84%;

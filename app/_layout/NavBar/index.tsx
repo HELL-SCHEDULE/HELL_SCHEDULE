@@ -33,11 +33,20 @@ const NavBar = ({ user }: Props) => {
           <Image
             src='/image/notification.png'
             alt='notification'
-            width={25}
-            height={25}
+            width={0}
+            height={0}
+            sizes='100vw'
+            style={{ width: '11%', height: 'auto', cursor: 'pointer' }}
           />
         )}
-        <Image src='/image/logout.png' alt='logout' width={25} height={25} />
+        <Image
+          src='/image/logout.png'
+          alt='logout'
+          width={0}
+          height={0}
+          sizes='100vw'
+          style={{ width: '11%', height: 'auto', cursor: 'pointer' }}
+        />
       </div>
     </NavBarWapper>
   );

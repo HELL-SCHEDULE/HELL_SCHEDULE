@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FilterSection = styled.div`
   width: 50%;
+  min-width: 708px;
   height: 100%;
   display: flex;
   align-items: center;
