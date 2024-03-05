@@ -17,6 +17,7 @@ import {
 import { useRouter } from 'next/navigation';
 import useInput from '@/app/hooks/useInput';
 import axios from 'axios';
+import nodemailer from 'nodemailer';
 
 const Master = () => {
   const style = { background: '#041f86', color: 'white', height: '6.7%' };
@@ -36,6 +37,29 @@ const Master = () => {
   const onSubmit = useCallback(() => {
     router.push('/login');
   }, []);
+
+  // 메일 주소 및 앱 비밀번호 선언하기 (gmail)
+  const email = process.env.NEXT_PUBLIC_EMAIL;
+  const pass = process.env.NEXT_PUBLIC_PASSWORD;
+
+  // transporter 생성하기
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: email,
+      pass: pass,
+    },
+  });
+
+  const sendMailHandler = async (toEmail: string) => {
+    const mailOptions = {
+      from: process.env.NEXT_PUBLIC_EMAIL, // 송신할 이메일
+      to: toEmail, // 수신할 이메일
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log(toEmail);
+  };
 
   const verificateCenterNumber = useCallback(() => {
     if (name && centerNumber && startDate) {
@@ -79,6 +103,9 @@ const Master = () => {
   const verificateEmail = useCallback(() => {
     if (email_1 && email_2)
       alert('입력하신 이메일로 인증 번호가 전송되었습니다.');
+    else {
+      sendMailHandler(`${email_1}@${email_2}`);
+    }
   }, [email_1, email_2]);
 
   const verificateEmailNumber = useCallback(() => {

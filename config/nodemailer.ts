@@ -16,8 +16,13 @@ export const transporter = nodemailer.createTransport({
   },
 });
 
-// 메일 옵션 정하기
-export const mailOptions = {
-  from: email, // 송신할 이메일
-  to: email, // 수신할 이메일
+// // 메일 옵션 정하기
+export const sendMailHandler = (toEmail: string) => {
+  // const mailOptions = {
+  //   from: email, // 송신할 이메일
+  //   to: toEmail, // 수신할 이메일
+  // };
+
+  // await transporter.sendMail(mailOptions);
+  console.log(toEmail);
 };
