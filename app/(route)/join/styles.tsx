@@ -20,6 +20,7 @@ export const BasicForm = styled.div`
       font-size: 14px;
       font-style: normal;
       font-weight: 400;
+      cursor: pointer;
     }
   }
   .password {
@@ -29,9 +30,12 @@ export const BasicForm = styled.div`
   .password-check {
     height: 24.4%;
   }
-  .success-message,
-  .error-message {
+  .success-message {
     height: 8%;
+    visibility: hidden;
+  }
+  .true {
+    visibility: visible;
   }
 
   @media all and (min-width: 1024px) and (max-width: 1920px) {

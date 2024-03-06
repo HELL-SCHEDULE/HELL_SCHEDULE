@@ -7,29 +7,25 @@ import { BasicForm, Description, KaKaoButton } from './styles';
 import useInput from '@/app/hooks/useInput';
 import ModalLayout from '@/app/_layout/ModalLayout';
 import ChoiceUserTypeModal from '@/app/_components/Modal/ChoiceUserTypeModal';
+import { idDuplicateCheckAPI } from '@/app/api/accout';
 
 const Join = () => {
   const style = { background: '#041f86', color: 'white', height: '13.9%' };
 
-  // 가입하는 유저의 타입
-  const [joinUserType, setJoinUserType] = useState('회원');
-
-  const onClickJoinType = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const eventTarget = e.target as HTMLElement;
-    setJoinUserType(eventTarget.innerText);
-  }, []);
-
-  // 중복확인
-  const [id, onChangeId] = useInput('');
-  const [duplicateId, setDuplicateId] = useState(false);
+  // id 중복확인
+  const [id, onChangeId, setId] = useInput('');
+  const [isDuplicateId, setIsDuplicateId] = useState<boolean>(true);
 
   const duplicateCheck = useCallback(async () => {
-    console.log(id);
-    // const response = await idDuplicateCheckAPI(id);
-    // id 중복확인 실패면
-    // if(!response){
-    //   setDuplicateId(true)
-    // }
+    const response = await idDuplicateCheckAPI(id);
+    // id 중복인 경우
+    if (response) {
+      alert('이미 존재하는 아이디입니다.');
+      setId('');
+    } else {
+      // id 중복 아닌 경우
+      setIsDuplicateId(false);
+    }
   }, [id]);
 
   // 비밀번호 확인
@@ -47,18 +43,23 @@ const Join = () => {
     [password]
   );
 
-  // 가입하는 유저의 타입에 따른 가입 정보
-  const [memberJoinForm, setMemberJoinForm] = useState({});
-  const [instructorJoinForm, setInstructorJoinForm] = useState({});
-  const [masterJoinForm, setMasterJoinForm] = useState({});
+  // // 가입하는 유저의 타입에 따른 가입 정보
+  // const [memberJoinForm, setMemberJoinForm] = useState({});
+  // const [instructorJoinForm, setInstructorJoinForm] = useState({});
+  // const [masterJoinForm, setMasterJoinForm] = useState({});
 
   const [isOpenUserTypeMoadl, setIsOpenUserTypeModal] = useState(false);
   // 회원가입 클릭 시, 유저 타입 선택 모달 오픈
   // 카카오 회원가입 시, 과정 끝내면 모달 오픈(찾아봐야함!)
   const handleUserTypeModal = useCallback(() => {
     console.log('회원가입');
-    setIsOpenUserTypeModal((prev) => !prev);
-  }, []);
+    if (!passwordError && !isDuplicateId) {
+      setIsOpenUserTypeModal((prev) => !prev);
+    } else if (isDuplicateId) {
+      console.log(isDuplicateId);
+      alert('아이디 중복 확인을 해주세요.');
+    }
+  }, [isDuplicateId, passwordError]);
 
   return (
     <AccountLayout title={'회원가입'}>
@@ -73,12 +74,9 @@ const Join = () => {
           />
           <button onClick={duplicateCheck}>중복 확인</button>
         </div>
-        {duplicateId ? (
-          <p className='error-message'>이미 존재하는 이메일입니다.</p>
-        ) : (
-          <p className='success-message'>사용 가능한 이메일입니다.</p>
-        )}
-
+        <p className={`success-message ${!isDuplicateId}`}>
+          사용 가능한 이메일입니다.
+        </p>
         <input
           type='text'
           className='global-input password'
@@ -116,7 +114,10 @@ const Join = () => {
       </Description>
       {isOpenUserTypeMoadl && (
         <ModalLayout onCloseModal={handleUserTypeModal}>
-          <ChoiceUserTypeModal onCloseModal={handleUserTypeModal} />
+          <ChoiceUserTypeModal
+            onCloseModal={handleUserTypeModal}
+            accoutInfo={{ signname: id, password: password }}
+          />
         </ModalLayout>
       )}
     </AccountLayout>
